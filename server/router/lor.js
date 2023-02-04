@@ -70,7 +70,7 @@ router.get('/generateLOR/:id', async (req, res) => {
         doc.font('./fonts/NotoSansJP-Light.otf')
             .fontSize(12)
             .fill('#000000')
-            .text(`I am writing this letter to highly recommend ${Volunt.name}, a student at ${Volunt.institute}, for their volunteer work with NGO, an organization that provides education to underprivileged children. I have had the pleasure of working with ${Volunt.name} as their supervisor and can attest to their strong commitment to making a difference in the lives of others.`, {
+            .text(`I am writing this letter to highly recommend ${Volunt.name}, a student at ${Volunt.institute}, for their volunteer work with our NGO for total of ${Volunt.hours}, an organization that provides education to underprivileged children. I have had the pleasure of working with ${Volunt.name} as their supervisor and can attest to their strong commitment to making a difference in the lives of others.`, {
                 align: 'justify',
             });
 
@@ -79,7 +79,7 @@ router.get('/generateLOR/:id', async (req, res) => {
         doc.font('./fonts/NotoSansJP-Light.otf')
             .fontSize(12)
             .fill('#000000')
-            .text(`${Volunt.name} possesses a rare combination of intelligence, passion, and drive, which makes them an asset to any organization. I am confident that their volunteer work with our NGO will have a lasting impact on the lives of the children they serve.`, {
+            .text(`${Volunt.name} possesses a rare combination of intelligence, passion, and drive, which makes them an asset to any organization. I am confident that their volunteer work such as ${Volunt.workDone} with our NGO will have a lasting impact on the lives of the children they serve.`, {
                 align: 'justify',
             });
 
