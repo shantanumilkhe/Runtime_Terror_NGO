@@ -1,5 +1,5 @@
 const express = require('express');
-const Seat = require('../model/seats');
+const Seat = require('../model/seatSchema');
 const passport = require('passport');
 const router = express.Router();
 

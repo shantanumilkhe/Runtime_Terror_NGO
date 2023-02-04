@@ -31,7 +31,11 @@ const volunteerSchema = new mongoose.Schema({
    approval:{
         type:Boolean,
         default:true
-   }
+   },
+   studentsProvided:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Student',
+   }]
 });
 
 volunteerSchema.pre('save', async function (next) {

@@ -3,7 +3,7 @@ const router = express.Router();
 const Volunteer = require('../model/volunteerSchema');
 const Student = require('../model/studentSchema');
 const Institute = require('../model/instituteSchema');
-const Seat = require('../model/seats');
+const Seat = require('../model/seatSchema');
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;

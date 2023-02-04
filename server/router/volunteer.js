@@ -2,13 +2,6 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 const Volunteer = require('../model/volunteerSchema');
-
-router.get('/getassignedstudents',passport.authenticate('jwt', { session: false }),async(req,res)=>{
-    let vol = req.user;
-    let volunteer = await volunteer ({_id:vol});
-    console.log(volunteer.assignedStudents);
-})
-
 const multer  = require('multer');
 var shortid    = require('shortid');
 const student = require('../model/studentSchema');
@@ -38,12 +31,13 @@ router.post('/uploadxlsx',passport.authenticate('jwt', { session: false }),uploa
            F:'boardGrade'
         }
     });
-
+    const vol = await Volunteer.findOne({_id:req.user._id});
     for(var i=0;i<result.data.length;i++){
         const exist = await student.findOne({phone:result.data[i].phone});
         if(!exist){
         const newStudent = new student(result.data[i]);
-        newStudent.assignedVolunteer = null;
+        newStudent.assignedInstitute = null;
+        vol.studentsProvided.push(newStudent._id);
         console.log(newStudent);
         newStudent.save();
         }else{
