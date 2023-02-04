@@ -23,7 +23,7 @@ function Login() {
     if (res.status === 400 || !data) {
       window.alert("Invalid Credentials");
     } else {
-      navigate("/admin/dashboard");
+      navigate("/admin");
     }
   };
   return (

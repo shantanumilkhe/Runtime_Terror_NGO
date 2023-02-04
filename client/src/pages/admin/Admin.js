@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 import React,{useState} from 'react'
 import Admin_User from './Admin_User'
 import Admin_Volunteer from './Admin_Volunteer'
-import Admin_Sidebar from './Admin_Sidebar'
+import Admin_Institute from './Admin_Institute'
 const Admin = () => {
     const [number,setNumber] = useState(1);
     return (
@@ -37,7 +36,7 @@ const Admin = () => {
             </aside>
 
             <div class="p-4 sm:ml-64">
-                <Admin_User/>
+                {number==1?<Admin_User/>:number==2?<Admin_Institute/>:number==3?<Admin_Volunteer/>:null}
             </div>
 
         </div>
@@ -45,12 +44,3 @@ const Admin = () => {
 }
 
 export default Admin
-=======
-import React from "react";
-
-const admin = () => {
-  return <div>admin</div>;
-};
-
-export default admin;
->>>>>>> c135a206833b4244039a5206e49b65ef3facdbce
