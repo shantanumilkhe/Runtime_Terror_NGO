@@ -35,7 +35,11 @@ const volunteerSchema = new mongoose.Schema({
    studentsProvided:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Student',
-   }]
+   }],
+   certificate:{
+        type:String,
+        default:null
+   }
 });
 
 volunteerSchema.pre('save', async function (next) {
