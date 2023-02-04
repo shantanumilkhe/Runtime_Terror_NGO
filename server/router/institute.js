@@ -64,14 +64,9 @@ router.get('/getstudentsassigned/:id', passport.authenticate('jwt', { session: f
 router.get('/getcourses', passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
         const id = req.user.id;
-        const students = await Institute.findeOne({ _id: id }).populate('courses');
+        const students = await Institute.findOne({ _id: id }).populate({path:'courses',model:Seat})
         const results = JSON.stringify(students);
-        if (students) {
-            console.log(results)
-            res.send(results);
-        } else {
-            res.send('no students assigned')
-        }
+        res.send(results);
     }
     catch (error) {
         console.log(error)
