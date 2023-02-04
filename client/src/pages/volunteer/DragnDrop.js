@@ -1,6 +1,29 @@
 import React, { useState } from "react";
 
-function DragnDrop() {
+const DragnDrop=()=> {
+  const [pdf,setPDF] = useState(null);
+  const handleFile = async (e) => {
+    const file = e.target.files[0];
+    let url = URL.createObjectURL(file);
+    setPDF(file);
+  };
+  const handleSubmit = async (e) => {
+    let token = localStorage.getItem('token');
+        e.preventDefault()
+    var FormData = require('form-data');
+    var formData = new FormData();
+
+    formData.append("xlsx", pdf);
+
+    await fetch("http://localhost:5000/vol/uploadxlsx", {
+      method: 'POST',
+      body: formData,
+      headers:{Authorization:token}
+    })
+    .then((res) => console.log('done'))
+    .catch((err) => console.log(err.message));
+
+  }
   return (
     <div>
       <h1>Upload the excel sheet here</h1>
@@ -33,9 +56,10 @@ function DragnDrop() {
               XLSX (MAX. 800x400px)
             </p>
           </div>
-          <input id="dropzone-file" type="file" class="hidden" />
+          <input id="dropzone-file" type="file" class="hidden" onChange={(e) => handleFile(e)}/>
         </label>
       </div>
+      <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={handleSubmit}>Upload</button> 
     </div>
   );
 }

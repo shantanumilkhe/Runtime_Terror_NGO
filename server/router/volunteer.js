@@ -17,7 +17,7 @@ const upload = multer({storage: multer.diskStorage({
 
 router.post('/uploadxlsx',passport.authenticate('jwt', { session: false }),upload.single('xlsx'), async (req, res) => {
    
-   
+    console.log(req.file);
     const result = converter({
         sourceFile: path.join(__dirname, '../uploads/'+req.file.filename),
         header: {
@@ -29,7 +29,8 @@ router.post('/uploadxlsx',passport.authenticate('jwt', { session: false }),uploa
             C:'phone',
             D:'location',
             E:'currentClass',
-           F:'boardGrade'
+           F:'boardGrade',
+           G:'course'
         }
     });
     const vol = await Volunteer.findOne({_id:req.user._id});
