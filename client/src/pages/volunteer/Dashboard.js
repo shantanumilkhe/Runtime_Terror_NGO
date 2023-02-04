@@ -9,7 +9,12 @@ const Dashboard = () => {
         <section class="sec1">
           <li>
             <h1>Name: </h1>
+          </li>
+          <li>
             <p className="achievments">Achievments: </p>
+          </li>
+          <li>
+            <p className="achievments">Number of students assigned: </p>
           </li>
         </section>
       </div>
