@@ -23,19 +23,19 @@ const Events = () => {
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" class="px-6 py-3">
+                Date
+              </th>
+              <th scope="col" class="px-6 py-3">
                 Event Name
               </th>
               <th scope="col" class="px-6 py-3">
-                Event Duration
+                Duration
               </th>
               <th scope="col" class="px-6 py-3">
-                Event Field
+                Volunteer required
               </th>
-              {/* <th scope="col" class="px-6 py-3">
-                Available Seats
-              </th> */}
               <th scope="col" class="px-6 py-3">
-                Total seats
+                Event Decription
               </th>
             </tr>
           </thead>
@@ -50,6 +50,8 @@ const Events = () => {
                       {insti.name}
                     </th>
                     <td class="px-6 py-4">{insti.location}</td>
+                    <td class="px-6 py-4">{insti.location}</td>
+
                     <td class="px-6 py-4">{insti.location}</td>
                     <td class="px-6 py-4">{insti.location}</td>
                     <td class="px-6 py-4">{insti.location}</td>
