@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import AdminLogin from "./pages/admin/Login";
 // import Upload from "./pages/institute/Upload";
 import AdminDashboard from "./pages/admin/Dashboard";
+import StudentList from "./pages/institute/StudentList";
 import VolunteerRegistration from "./pages/volunteer/Register";
 // import InstituteDashboard from "./pages/institute/Dashboard";
 import VolunteerDashboard from "./pages/volunteer/Dashboard";
@@ -40,6 +41,7 @@ function App() {
           path="/volunteer/dashboard/dragndrop"
           element={<VolunteerUpload />}
         />
+        <Route path="/institute/studentlist/:id" element={<StudentList />} />
         <Route path="/institute/register" element={<InstituteRegister />} />
         <Route path="/volunteer/Dashboard" element={<VolunteerDashboard />} />
         <Route path="/institute/Dashboard" element={<InstituteDashboard />} />

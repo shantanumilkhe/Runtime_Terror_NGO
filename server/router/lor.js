@@ -3,6 +3,7 @@ const router = express.Router();
 const Volunteer = require('../model/volunteerSchema');
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
+const Request = require('../model/request');
 
 function jumpLine(doc, lines) {
     for (let index = 0; index < lines; index++) {
@@ -14,7 +15,12 @@ router.get('/generateLOR/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const Volunt = await Volunteer.findOne({ _id: id });
-
+        const newReq = await Request.findOne();
+        if (newReq.pendinglor.includes(id)) {
+            newReq.pendinglor.pull(id);
+            newReq.save();
+        }
+        newReq.approvedlor.push(id);
 
         const doc = new PDFDocument({
             layout: 'portrait',

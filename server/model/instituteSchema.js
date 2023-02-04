@@ -35,6 +35,7 @@ instituteSchema.pre('save', async function (next) {
     next();
 });
 
+
 instituteSchema.methods.generateAuthToken = async function () {
     try {
         let token= jwt.sign({ _id: this._id }, process.env.SECRET_KEY);
