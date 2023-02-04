@@ -8,7 +8,7 @@ router.post('/login',async(req,res)=>{
     const{username,password} = req.body;
     if(!username || !password) return res.json(500).send({message:'incomplete data'});
     if(username =='admin' && password =='admin')  return res.json(200).send({message:'login successful'});
-    else return res.json(500).send(message:'Login unsuccesful');
+    else return res.json(500).send({message:'Login unsuccesful'});
 })
 
 router.get('/getallstudents',async (req,res)=>{
