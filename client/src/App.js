@@ -11,7 +11,7 @@ function App() {
       <h1>App</h1>
       <homepage />
       <Routes>
-        <Route path="/" element={<adminlogin />} />
+        <Route path="/adminauth" element={<adminlogin />} />
       </Routes>
     </div>
   );
