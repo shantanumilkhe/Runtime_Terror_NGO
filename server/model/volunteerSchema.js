@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const Subject = require('./subject');
-const Absent = require('./absent')
 
-const userSchema = new mongoose.Schema({
+
+const volunteerSchema = new mongoose.Schema({
     name: {
         type: String,
         require: true
@@ -21,41 +20,37 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    cpassword: {
-        type: String,
-        require: true
-    },
-    absent:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:"Absent"
-        }
-    ],
-    tokens: [
-        {
-            token: {
-                type: String,
-                require: true
-            }
-        }
-    ],
-    subjects:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref: "Subject"
-        }
-    ]
+   location:{
+        type:String,
+        require:true,
+   }
+   ,
+   institute:{
+        type:String,
+        require:true,
+   }, 
+   currentCourse:{
+        type:String,
+        require:true,
+   },
+   grade:{
+        type:String,
+        require:true,
+   }, 
+   assignedStudents:{
+    type: Schema.Types.ObjectId,
+     ref: 'Students',
+   },
 });
 
-userSchema.pre('save', async function (next) {
+volunteerSchema.pre('save', async function (next) {
     if (this.isModified('password')) {
         this.password = bcrypt.hashSync(this.password, 12);
-        this.cpassword = bcrypt.hashSync(this.cpassword, 12);
     }
     next();
 });
 
-userSchema.methods.generateAuthToken = async function () {
+volunteerSchema.methods.generateAuthToken = async function () {
     try {
         let token= jwt.sign({ _id: this._id }, process.env.SECRET_KEY);
         this.tokens = this.tokens.concat({token:token});
@@ -66,6 +61,6 @@ userSchema.methods.generateAuthToken = async function () {
     }
 }
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', volunteerSchema);
 
 module.exports = User;
