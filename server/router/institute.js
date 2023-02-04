@@ -1,5 +1,5 @@
 const express = require('express');
-const Seats = require('../model/seats');
+const Seat = require('../model/seats');
 const passport = require('passport');
 const router = express.Router();
 
@@ -7,11 +7,11 @@ const router = express.Router();
 router.post('/addnewseats/:id',passport.authenticate('jwt', { session: false }), async (req, res) => {
     try{
          const id = req.params.id;
-         const seats = req.body.seats;
+         const givenseats = req.body.seats;
          const courseProvided = req.body.courseProvided;
-         const insti = new Seats({
+         const insti = new Seat({
                 instituteId: id,
-                seats: seats,
+                seats: givenseats,
                 courseProvided: courseProvided
             });
             insti.save();
@@ -23,9 +23,9 @@ router.post('/addnewseats/:id',passport.authenticate('jwt', { session: false }),
 router.post('/updateseats/:id',passport.authenticate('jwt', { session: false }), async (req, res) => {
    try{
     const id = req.params.id;
-    const seats = req.body.seats;
+    const seat = req.body.seats;
     const insti = await Seats.findeOne({_id:id});
-    insti.seats = seats;
+    insti.seats = seat;
     insti.save();
     res.send('seats updated')}
     catch(error){
@@ -36,7 +36,7 @@ router.post('/updateseats/:id',passport.authenticate('jwt', { session: false }),
 router.get('getstudentsassigned/:id',passport.authenticate('jwt', { session: false }), async (req, res) => {
     try{
         const id = req.params.id;
-        const students = await Seats.findeOne({_id:id}).populate('assignedStudents');
+        const students = await Seat.findeOne({_id:id}).populate('assignedStudents');
         const results = JSON.stringify(students);
         if(students){
         res.send(results);

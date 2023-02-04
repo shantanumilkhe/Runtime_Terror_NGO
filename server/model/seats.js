@@ -21,5 +21,5 @@ const seatsSchema = new mongoose.Schema({
     }
 });
 
-const Seats = mongoose.model('Seats', seatsSchema);
-module.exports = Seats;
+const Seat = mongoose.model('Seat', seatsSchema);
+module.exports = Seat
