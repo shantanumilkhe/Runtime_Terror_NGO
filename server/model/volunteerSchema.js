@@ -30,7 +30,7 @@ const volunteerSchema = new mongoose.Schema({
    }, 
    approval:{
         type:Boolean,
-        default:false
+        default:true
    }
 });
 
