@@ -66,21 +66,23 @@ router.get('/assigned', async (req, res) => {
 
 router.get('/assignstudent/:id', async (req, res) => {
     try {
-        const course = await Seat.findOne({ institute: req.params.id }).populate('InstituteId');
-
+        const course = await Seat.findOne({ institute: req.params.id })
+        const Insti = await Institute.findOne({ _id: course.InstituteId });
         const Students = await Student.find({assignedInstitute: null, course: course.courseProvided});
+        const StudentsLength = Students.length;
         const assigned = course.assginedStudents.length;
         const availableseats = course.seats-assigned;
         if(availableseats>0){
-            for(let i=0;i<availableseats;i++){
+            for(let i=0;i<availableseats&&StudentsLength;i++){
                 Students[i].assignedInstitute = req.params.id;
-
+                course.assignedStudents.push(Students[i]._id);
                 Students[i].save();
             }
         }
 
-
-
+        let result = await Seat.findOne({ _id: req.params.id }).populate('assignedStudents');
+        let result2 = JSON.stringify(result);
+        res.send(result2)
     }
     catch (error) {
         console.log(error);
