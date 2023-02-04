@@ -34,7 +34,7 @@ const studentSchema = new mongoose.Schema({
         require:true,
    }, 
    assignedVolunteer:{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
      ref: 'Volunteer',
    },
 });
