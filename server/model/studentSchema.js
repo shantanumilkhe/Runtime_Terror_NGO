@@ -3,12 +3,12 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 
-const volunteerSchema = new mongoose.Schema({
-    name: {
-        type: String,
+const studentSchema = new mongoose.Schema({
+    uid:{
+        type: Number,
         require: true
     },
-    email: {
+    name: {
         type: String,
         require: true
     },
@@ -25,32 +25,28 @@ const volunteerSchema = new mongoose.Schema({
         require:true,
    }
    ,
-   institute:{
-        type:String,
-        require:true,
-   }, 
-   currentCourse:{
+   currentClass:{
         type:String,
         require:true,
    },
-   grade:{
+   boardGrade:{
         type:Number,
         require:true,
    }, 
-   assignedStudents:[{
+   assignedVolunteer:{
     type: Schema.Types.ObjectId,
-     ref: 'Student',
-   }],
+     ref: 'Volunteer',
+   },
 });
 
-volunteerSchema.pre('save', async function (next) {
+studentSchema.pre('save', async function (next) {
     if (this.isModified('password')) {
         this.password = bcrypt.hashSync(this.password, 12);
     }
     next();
 });
 
-volunteerSchema.methods.generateAuthToken = async function () {
+studentSchema.methods.generateAuthToken = async function () {
     try {
         let token= jwt.sign({ _id: this._id }, process.env.SECRET_KEY);
         this.tokens = this.tokens.concat({token:token});
@@ -61,6 +57,6 @@ volunteerSchema.methods.generateAuthToken = async function () {
     }
 }
 
-const Volunteer = mongoose.model('Student', volunteerSchema);
+const Student = mongoose.model('Student', studentSchema);
 
-module.exports = Volunteer;
+module.exports = Student;
