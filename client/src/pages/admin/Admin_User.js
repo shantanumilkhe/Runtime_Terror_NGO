@@ -1,84 +1,51 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import axios from 'axios';
 
 const Admin_User = () => {
+  const [students,setStudents] = useState(null);
+  useEffect(() => {
+    async function getdetails(){
+      await axios.get('http://localhost:5000/admin/getallstudents').then((res)=>{setStudents(res.data);console.log(res.data)}).catch(err=>console.log(err));
+    }
+    getdetails();
+  }, [])
+  
   return (
     <div>
-      <p class="text-4xl font-black text-gray-900 dark:text-gray-900">Students</p>
+      <p class="text-4xl font-black text-gray-900 dark:text-white">Students</p>
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" class="px-6 py-3">
-                Product name
+                UID
               </th>
               <th scope="col" class="px-6 py-3">
-                Color
+                Name
               </th>
               <th scope="col" class="px-6 py-3">
-                Category
+                Location
               </th>
               <th scope="col" class="px-6 py-3">
-                Price
+                Assigned Volunteer
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            {students?students.map((student)=><tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
               <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Apple MacBook Pro 17"
+                {student.uid}
               </th>
               <td class="px-6 py-4">
-                Sliver
+                {student.name}
               </td>
               <td class="px-6 py-4">
-                Laptop
+              {student.location}
               </td>
-              <td class="px-6 py-4">
-                $2999
-              </td>
-            </tr>
-            <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Microsoft Surface Pro
-              </th>
-              <td class="px-6 py-4">
-                White
-              </td>
-              <td class="px-6 py-4">
-                Laptop PC
-              </td>
-              <td class="px-6 py-4">
-                $1999
-              </td>
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Magic Mouse 2
-              </th>
-              <td class="px-6 py-4">
-                Black
-              </td>
-              <td class="px-6 py-4">
-                Accessories
-              </td>
-              <td class="px-6 py-4">
-                $99
-              </td>
-            </tr>
-            <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Google Pixel Phone
-              </th>
-              <td class="px-6 py-4">
-                Gray
-              </td>
-              <td class="px-6 py-4">
-                Phone
-              </td>
-              <td class="px-6 py-4">
-                $799
-              </td>
-            </tr>
+              {student.assignedVolunteer==null?<td class="px-6 py-4">-</td>:<td class="px-6 py-4">{student.assignedVolunteer}</td>}
+              
+            </tr>):null}
+
 
           </tbody>
         </table>

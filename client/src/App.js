@@ -8,7 +8,7 @@ import AdminLogin from "./pages/admin/Login";
 import AdminDashboard from "./pages/admin/Dashboard";
 import VolunteerRegistration from "./pages/volunteer/Register";
 // import InstituteDashboard from "./pages/institute/Dashboard";
-// import VolunteerDashboard from "./pages/volunteer/Dashboard";
+import VolunteerDashboard from "./pages/volunteer/Dashboard";
 import VolunteerLogin from "./pages/volunteer/Login";
 import InstituteRegister from "./pages/institute/Register";
 import Volunteer_studentTrack from "./pages/volunteer/StudentTrack";
@@ -41,7 +41,7 @@ function App() {
           element={<VolunteerUpload />}
         />
         <Route path="/institute/register" element={<InstituteRegister />} />
-        {/* <Route path="volunteer/Dashboard" element={<VolunteerDashboard />} /> */}
+        <Route path="/volunteer/Dashboard" element={<VolunteerDashboard />} />
         <Route path="/institute/Dashboard" element={<InstituteDashboard />} />
         <Route path="/instituteregister" element={<InstituteRegister />} />
         <Route path="/instituteauth" element={<InstituteLogin />} />

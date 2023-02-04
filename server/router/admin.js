@@ -36,7 +36,7 @@ router.get('/getallinstitutes', async (req, res) => {
 
 router.get('/getallvolunteer', async (req, res) => {
     try {
-        const volunteer = await Volunteer.find({ approval: true });
+        const volunteer = await Volunteer.find();
         console.log(volunteer);
         const result = JSON.stringify(volunteer);
         console.log(result[0]);
