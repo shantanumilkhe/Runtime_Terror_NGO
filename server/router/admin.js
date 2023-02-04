@@ -81,11 +81,12 @@ router.get('/getallcourses', async (req, res) => {
 router.get('/assignstudent/:id', async (req, res) => {
     try {
         console.log(req.params.id)
-        const course = await Seat.findOne({ institute: req.params.id })
+        const course = await Seat.findOne({ _id: req.params.id })
         // const Insti = await Institute.findOne({ _id: course.InstituteId });
+        console.log(course);
         const Students = await Student.find({assignedInstitute: null, course: course.courseProvided});
         const StudentsLength = Students.length;
-        const assigned = course.assginedStudents.length;
+        const assigned = course.assignedStudents.length;
         const availableseats = course.seats-assigned;
         if(availableseats>0){
             for(let i=0;i<availableseats&&StudentsLength;i++){
