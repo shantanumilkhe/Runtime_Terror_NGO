@@ -11,6 +11,7 @@ import VolunteerRegistration from "./pages/volunteer/Register";
 import VolunteerDashboard from "./pages/volunteer/Dashboard";
 import VolunteerLogin from "./pages/volunteer/Login";
 import InstituteRegister from "./pages/institute/Register";
+import InstituteLogin from "./pages/institute/Login";
 import Admin from "./pages/admin/Admin";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="volunteer/Dashboard" element={<VolunteerDashboard />} />
         <Route path="volunteer/Register" element={<VolunteerRegistration />} />
         <Route path="/instituteregister" element={<InstituteRegister />} />
+        <Route path="/instituteauth" element={<InstituteLogin />} />
       </Routes>
     </div>
   );

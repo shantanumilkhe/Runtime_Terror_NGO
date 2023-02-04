@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-import './Register.css'
+import axios from 'axios';
+// import './Register.css'
 const Register = () => {
     const navigate=useNavigate();
     const [name,setName]=useState("");
@@ -9,22 +10,30 @@ const Register = () => {
     const [location,setLocation]=useState("");
     const handleClick= async(e)=>{
         e.preventDefault();
-        const res=await fetch("/instiauth/register",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({
-                name,email,password,location
-            })
-        });
-        const data=res.json();
-        if(res.status===400 || !data){
-            window.alert("Invalid Credentials");
-        }else{
-                navigate("/instituteauth");
-        }
+      console.log(name)
+      console.log(email)
+      console.log(password)
+      console.log(location)
 
+      await axios.post("http://localhost:5000/instiauth/register",{name,email,password,location}).then(res=>console.log(res.data)).catch(err=>console.log(err))
+    //     const res=await fetch("/instiauth/register",{
+    //         method:"POST",
+    //         headers:{
+    //             "Content-Type":"application/json"
+    //         },
+    //         body:JSON.stringify({
+    //             name,email,password,location
+    //         })
+    //     });
+    //     const data=res.json();
+    //     if(res.status===201 ){
+    //       navigate("/instituteauth");
+    //     }else{
+             
+    //         window.alert("Invalid Credentials");   
+    //     }
+
+    // }
     }
   return (
     <div className='institute-register'>
