@@ -1,5 +1,6 @@
 import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import './login.css'
 function Login() {
     const navigate = useNavigate();
@@ -9,22 +10,21 @@ function Login() {
     const handleClick= async(e)=>{
         e.preventDefault();
         console.log(email,password);
-        const res=await fetch("/institute/login",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({
-                email,password
-            })
-        });
-        const data=res.json();
-        if(res.status===400 || !data){
-            window.alert("Invalid Credentials");
-        }else{
-           navigate("/institute/dashboard");
-
+        axios.post("http://localhost:5000/institute/login",{
+            email:email,
+            password:password
+        }).then((res)=>{
+            console.log(res.data);
+            if(res.data.success){
+                localStorage.setItem("token",res.data.token);
+                navigate("/volunteer/dashboard");
+            }
         }
+        ).catch((err)=>{
+            console.log(err);
+        }
+        )
+        
 
     }
   return (

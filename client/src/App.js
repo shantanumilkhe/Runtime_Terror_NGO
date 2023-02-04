@@ -13,6 +13,7 @@ import VolunteerLogin from "./pages/volunteer/Login";
 import InstituteRegister from "./pages/institute/Register";
 import InstituteLogin from "./pages/institute/Login";
 import Admin from "./pages/admin/Admin";
+import InstituteDashboard from "./pages/institute/Dashboard";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         {/* <Route path="/institute/dashboard" element={<InstituteDashboard />} /> */}
         <Route path="volunteer/Dashboard" element={<VolunteerDashboard />} />
+        <Route path="institute/Dashboard" element={<InstituteDashboard />} />
         <Route path="volunteer/Register" element={<VolunteerRegistration />} />
         <Route path="/instituteregister" element={<InstituteRegister />} />
         <Route path="/instituteauth" element={<InstituteLogin />} />
