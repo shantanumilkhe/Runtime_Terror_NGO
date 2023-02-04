@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
+import axios from 'axios';
 
 const Admin_Institute = () => {
+  const [institute,setInstitute] = useState(null);
+  useEffect(() => {
+    async function getDetails(){
+      await axios.get('http://localhost:5000/admin/getallinstitutes').then(res=>{setInstitute(res.data)}).catch(err=>console.log(err));
+    }
+    getDetails();
+  }, [])
+  
+
   return (
     <div>
         <p class="text-4xl font-black text-gray-900 dark:text-gray-900">Institutes</p>
@@ -9,77 +19,43 @@ const Admin_Institute = () => {
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" class="px-6 py-3">
-                Product name
+                Institute Name
               </th>
               <th scope="col" class="px-6 py-3">
-                Color
+                Institute Location
               </th>
               <th scope="col" class="px-6 py-3">
-                Category
+                Institute Course
               </th>
               <th scope="col" class="px-6 py-3">
-                Price
+                Available Seats
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Action
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            {institute?institute.map((insti,idx)=>
+              
+              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
               <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Apple MacBook Pro 17"
+                {insti.name}
               </th>
               <td class="px-6 py-4">
-                Sliver
+                {insti.location}
               </td>
               <td class="px-6 py-4">
-                Laptop
+              {insti.location}
               </td>
               <td class="px-6 py-4">
-                $2999
+              {insti.location}
+              </td>
+              <td class="px-6 py-4">
+              {insti.location}
               </td>
             </tr>
-            <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Microsoft Surface Pro
-              </th>
-              <td class="px-6 py-4">
-                White
-              </td>
-              <td class="px-6 py-4">
-                Laptop PC
-              </td>
-              <td class="px-6 py-4">
-                $1999
-              </td>
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Magic Mouse 2
-              </th>
-              <td class="px-6 py-4">
-                Black
-              </td>
-              <td class="px-6 py-4">
-                Accessories
-              </td>
-              <td class="px-6 py-4">
-                $99
-              </td>
-            </tr>
-            <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Google Pixel Phone
-              </th>
-              <td class="px-6 py-4">
-                Gray
-              </td>
-              <td class="px-6 py-4">
-                Phone
-              </td>
-              <td class="px-6 py-4">
-                $799
-              </td>
-            </tr>
-
+            ):null}
           </tbody>
         </table>
       </div>
