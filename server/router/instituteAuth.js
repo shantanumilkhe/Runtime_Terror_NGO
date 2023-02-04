@@ -28,8 +28,8 @@ router.post('/register', async (req, res) => {
             return res.status(422).send({ message: "Account already Exists" })
         }
 
-        const Institute = new Institute({name, email,password, location});
-        const saveInstitute = await Institute.save()
+        const Instituted = new Institute({name, email,password, location});
+        const saveInstitute = await Instituted.save()
 
         if (saveInstitute) {
             res.status(201).send({ message: "Registeration Successful! Please Login Now" })

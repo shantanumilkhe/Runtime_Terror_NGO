@@ -33,6 +33,7 @@ router.get('/getallvolunteer', async (req, res) => {
     try {
         const volunteer = await Volunteer.find({ approval: true });
         console.log(volunteer);
+        const result = JSON.stringify(volunteer);
     } catch (error) {
         console.log(error);
     }
@@ -50,12 +51,8 @@ router.get('/unassigned', async (req, res) => {
     }
 })
 
-router.get('/unapprovedvolunteers', async (req, res) => {
-    try{
-        
-    } catch(error){
-        console.log(error)
-    }
+router.get('/assignstudent', async (req, res) => {
+    
 })
 
 module.exports = router;

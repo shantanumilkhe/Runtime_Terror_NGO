@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./institute.css";
+import StudentTrack from "./StudentTrack";
+
 const Dashboard = () => {
   const [file, setFile] = useState(null);
 
