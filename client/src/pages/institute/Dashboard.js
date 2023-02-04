@@ -15,12 +15,12 @@ const Dashboard = () => {
         console.log(course)
         console.log(seat)
         // get token from local storage
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem('token');
         console.log(token)
-        axios.post(`http://localhost:5000/insti/addnewseats`,{headers:{Authorization:token}},{
+        axios.post('http://localhost:5000/insti/addnewseats',{
             course:course,
             seat:seat
-        }).then((res)=>{
+        },{headers:{'Authorization':token}}).then((res)=>{
             console.log(res.data)
         }
         ).catch((err)=>{
