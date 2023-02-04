@@ -56,21 +56,26 @@ router.post('/uploadxlsx',passport.authenticate('jwt', { session: false }),uploa
 router.get('/getcertificates/:id',passport.authenticate('jwt', { session: false }), async (req, res) => {
     const id = req.params.id;
     const vol = await Volunteer.findOne({_id:id});
+    if(vol.certificate){
    const certificate = vol.certificate;
     const certificatePath = path.join(__dirname, '../certificates/');
-
    res.sendFile(certificate, { root: certificatePath });
+    }else{
+        res.status(400).send("No certificate found");
+    }
 
 })
 
 router.get('/getLOR/:id', async (req, res) => {
     const id = req.params.id;
     const vol = await Volunteer.findOne({_id:id});
+    if(vol.lor){
    const LOR = vol.lor;
     const LORPath = path.join(__dirname, '../LORS/');
-
    res.sendFile(LOR, { root: LORPath });
-
+    }else{
+        res.status(400).send("No LOR found");
+    }
 })
 
 module.exports = router;
