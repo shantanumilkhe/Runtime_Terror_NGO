@@ -30,8 +30,8 @@ const Register = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="institute-register">
-      <form>
+    <div className="institute-register" >
+      <form >
         <div class="relative z-0 w-full mb-6 group">
           <input
             type="text"
@@ -120,6 +120,7 @@ const Register = () => {
           Submit
         </button>
       </form>
+     
     </div>
   );
 };

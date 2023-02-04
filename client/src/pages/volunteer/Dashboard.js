@@ -4,7 +4,6 @@ import StudentTrack from "./StudentTrack";
 import DragnDrop from "./DragnDrop";
 
 const Dashboard = () => {
-  const [file, setFile] = useState(null);
   const [number, setNumber] = useState(1);
   //   let navigate = useNavigate();
   //   const routeChange = () => {
