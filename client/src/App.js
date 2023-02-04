@@ -1,17 +1,16 @@
 // import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
-import homepage from "./pages/homepage/homepage";
+import Homepage from "./pages/homepage/homepage";
 import { Routes, Route } from "react-router-dom";
-import adminlogin from "./pages/admin/login";
+import AdminLogin from "./pages/admin/login";
 
 function App() {
   return (
     <div className="App">
-      <h1>App</h1>
-      <homepage />
       <Routes>
-        <Route path="/" element={<adminlogin />} />
+        <Route path="/" element={<Homepage />}></Route>
+        <Route path="/adminauth" element={<AdminLogin />} />
       </Routes>
     </div>
   );
