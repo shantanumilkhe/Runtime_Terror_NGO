@@ -48,7 +48,7 @@ function App() {
         <Route path="/institute/register" element={<InstituteRegister />} />
         <Route path="/volunteer/Dashboard" element={<VolunteerDashboard />} />
         <Route path="/institute/Dashboard" element={<InstituteDashboard />} />
-        <Route path="/institute/Events_input" element={<Events_input />} />
+        <Route path="/admin/create-event" element={<Events_input />} />
         <Route path="/instituteregister" element={<InstituteRegister />} />
         <Route path="/instituteauth" element={<InstituteLogin />} />
       </Routes>

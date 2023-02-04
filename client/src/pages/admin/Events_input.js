@@ -5,7 +5,7 @@ import "./Events_input.css";
 
 const Events_input = () => {
   const token = localStorage.getItem("token");
-  console.log(token);
+  // console.log(token);
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [time, setTime] = useState("");
@@ -17,25 +17,28 @@ const Events_input = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     // console.log(name);
-    // console.log(duration);
-    // console.log(v_req);
-    // console.log(description);
-    // console.log(date);
+  console.log(name, time,volunteersRequired,description,date,venue)
+  
 
     await axios
       .post(
-        "http://localhost:5000/createEvent",
-        { headers: { Authorization: token } },
+        "http://localhost:5000/event/createEvent",
+        
         {
-          name,
-          date,
-          time,
-          venue,
-          description,
-          volunteersRequired,
-        }
+          
+            name,
+            date,
+            time,
+            venue,
+            description,
+            volunteersRequired,
+        },
+        { headers: { Authorization: token } },
       )
-      .then((res) => console.log(res.data))
+      .then((res) =>{
+        console.log(res.data)
+        navigate("/admin")
+      } )
       .catch((err) => console.log(err));
   };
   return (
