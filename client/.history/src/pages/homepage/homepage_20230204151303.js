@@ -155,7 +155,11 @@ const homepage = () => {
       </nav>
 
       <div className="container">
-        <img src="" alt="" className="bgImg"></img>
+        <img
+          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fphotos%2Feducation&psig=AOvVaw2R0CiCSCx3IsoxNv2vZQvO&ust=1675590151945000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMDPw_DJ-_wCFQAAAAAdAAAAABAE"
+          alt=""
+          className="bgImg"
+        ></img>
       </div>
     </div>
   );

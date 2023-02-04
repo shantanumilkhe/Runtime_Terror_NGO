@@ -4,15 +4,9 @@ import React from "react";
 import Homepage from "./pages/homepage/homepage";
 import { Routes, Route } from "react-router-dom";
 import AdminLogin from "./pages/admin/login";
-// import "swiper/css";
-// import "swiper/css/pagination";
-// import "swiper/css/navigation";
-
-// import { Pagination } from "swiper";
-// import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
-
-// import "swiper/swiper.min.css";
-// import "swiper/modules/pagination/pagination.min.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 function App() {
   return (

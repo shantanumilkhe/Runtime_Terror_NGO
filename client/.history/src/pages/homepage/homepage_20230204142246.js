@@ -1,7 +1,14 @@
 import React from "react";
-import styles from "./homepage.css";
 // import Head from "next/head";
-//
+import Carousal from "./components/home/Carousal";
+import Hero from "./components/home/Hero";
+import Stats from "./components/home/Stats";
+import Testimonials from "./components/home/Testimonials";
+// import Navbar from "../components/common/Navbar";
+import Footer from "./components/common/Footer";
+import CoreTeam from "./components/home/CoreTeam";
+import Donate from "./components/home/Donate";
+import About from "./components/home/About";
 
 const homepage = () => {
   return (
@@ -153,10 +160,17 @@ const homepage = () => {
           </div>
         </div>
       </nav>
+      <main className="">
+        <Hero />
+        <Carousal />
+        <Stats />
+        <Donate />
+        <Testimonials />
+        <CoreTeam />
+        <About />
+      </main>
 
-      <div className="container">
-        <img src="" alt="" className="bgImg"></img>
-      </div>
+      <Footer />
     </div>
   );
 };

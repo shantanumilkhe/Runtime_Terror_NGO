@@ -8,11 +8,11 @@ import AdminLogin from "./pages/admin/login";
 // import "swiper/css/pagination";
 // import "swiper/css/navigation";
 
-// import { Pagination } from "swiper";
-// import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
+import { Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 
-// import "swiper/swiper.min.css";
-// import "swiper/modules/pagination/pagination.min.css";
+import "swiper/swiper.min.css";
+import "swiper/modules/pagination/pagination.min.css";
 
 function App() {
   return (
