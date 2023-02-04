@@ -20,7 +20,7 @@ const Dashboard = () => {
           <ul class="ul-menu">
             <li class="li-mneu Active-menu">
               <div class="title-menu" onClick={() => setNumber(1)}>
-                Dashboard{" "}
+                Request LOR
               </div>
             </li>
             <li class="li-mneu">
