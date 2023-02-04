@@ -6,21 +6,12 @@ import { Routes, Route } from "react-router-dom";
 import AdminLogin from "./pages/admin/Login";
 // import Upload from "./pages/institute/Upload";
 import AdminDashboard from "./pages/admin/Dashboard";
+import VolunteerRegistration from "./pages/volunteer/Register";
 // import InstituteDashboard from "./pages/institute/Dashboard";
 import VolunteerDashboard from "./pages/volunteer/Dashboard";
 import InstituteLogin from "./pages/volunteer/Login";
 import InstituteResiter from "./pages/volunteer/Register";
 import Admin from "./pages/admin/Admin";
-// import AdminLogin from "./pages/admin/login";
-// import "swiper/css";
-// import "swiper/css/pagination";
-// import "swiper/css/navigation";
-
-// import { Pagination } from "swiper";
-// import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
-
-// import "swiper/swiper.min.css";
-// import "swiper/modules/pagination/pagination.min.css";
 
 function App() {
   return (
@@ -34,7 +25,7 @@ function App() {
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         {/* <Route path="/institute/dashboard" element={<InstituteDashboard />} /> */}
         <Route path="volunteer/Dashboard" element={<VolunteerDashboard />} />
-        <Route path="volunteer/Dashboard" element={<VolunteerDashboard />} />
+        <Route path="volunteer/Register" element={<VolunteerRegistration />} />
         <Route path="/instituteregister" element={<InstituteResiter />} />
       </Routes>
     </div>

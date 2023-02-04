@@ -1,51 +1,52 @@
 const express = require('express');
 const router = express.Router();
-const converter = require('convert-excel-to-json');
-const fs = require('fs');
-var path = require('path')
-const multer  = require('multer');
-var shortid    = require('shortid');
-const student = require('../model/studentSchema');
+const Seats = require('../model/seats');
 
-const upload = multer({storage: multer.diskStorage({
-    destination: './uploads/',
-    filename: function (req, file, cb){
-        // user shortid.generate() alone if no extension is needed
-        cb( null, shortid.generate() + (file.originalname));
+
+router.post('/addnewseats/:id', async (req, res) => {
+    try{
+         const id = req.params.id;
+         const seats = req.body.seats;
+         const courseProvided = req.body.courseProvided;
+         const insti = new Seats({
+                instituteId: id,
+                seats: seats,
+                courseProvided: courseProvided
+            });
+            insti.save();
+    } catch(error){
+        console.log(error)
     }
-})});
+})
 
-router.post('/uploadxlsx',upload.single('xlsx'), async (req, res) => {
-   
-   
-    const result = converter({
-        sourceFile: path.join(__dirname, '../uploads/'+req.file.filename),
-        header: {
-            rows: 1
-        },
-        columnToKey: {
-            A:'uid',
-            B:'name',
-            C:'phone',
-            D:'location',
-            E:'currentClass',
-           F:'boardGrade'
-        }
-    });
+router.post('/updateseats/:id', async (req, res) => {
+   try{
+    const id = req.params.id;
+    const seats = req.body.seats;
+    const insti = await Seats.findeOne({_id:id});
+    insti.seats = seats;
+    insti.save();
+    res.send('seats updated')}
+    catch(error){
+        console.log(error)
+    }
+})
 
-    for(var i=0;i<result.data.length;i++){
-        const exist = await student.findOne({phone:result.data[i].phone});
-        if(!exist){
-        const newStudent = new student(result.data[i]);
-        newStudent.assignedVolunteer = null;
-        console.log(newStudent);
-        newStudent.save();
+router.get('getstudentsassigned/:id', async (req, res) => {
+    try{
+        const id = req.params.id;
+        const students = await Seats.findeOne({_id:id}).populate('assignedStudents');
+        const results = JSON.stringify(students);
+        if(students){
+        res.send(results);
         }else{
-            console.log("Data already exists");
+            res.send('no students assigned')
         }
     }
-    console.log("Data inserted");
+    catch(error){
+        console.log(error)
+    }
+})
 
-});
 
 module.exports = router;

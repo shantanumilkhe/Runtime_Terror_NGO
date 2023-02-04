@@ -23,24 +23,11 @@ const volunteerSchema = new mongoose.Schema({
    location:{
         type:String,
         require:true,
-   }
-   ,
+   },
    institute:{
         type:String,
         require:true,
    }, 
-   currentCourse:{
-        type:Number,
-        require:true,
-   },
-   grade:{
-        type:Number,
-        require:true,
-   },
-   assignedStudents:[{
-    type: mongoose.Schema.Types.ObjectId,
-     ref: 'Student',
-   }],
    approval:{
         type:Boolean,
         default:false

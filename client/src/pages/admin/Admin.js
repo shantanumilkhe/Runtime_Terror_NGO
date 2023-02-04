@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React,{useState} from 'react'
 import Admin_User from './Admin_User'
 import Admin_Volunteer from './Admin_Volunteer'
@@ -44,3 +45,12 @@ const Admin = () => {
 }
 
 export default Admin
+=======
+import React from "react";
+
+const admin = () => {
+  return <div>admin</div>;
+};
+
+export default admin;
+>>>>>>> c135a206833b4244039a5206e49b65ef3facdbce
