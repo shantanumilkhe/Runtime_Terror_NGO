@@ -1,7 +1,6 @@
 import React from "react";
-import styles from "./homepage.css";
 // import Head from "next/head";
-//
+import logo from "../../public/assets/homepage.jpg";
 
 const homepage = () => {
   return (
@@ -155,7 +154,7 @@ const homepage = () => {
       </nav>
 
       <div className="container">
-        <img src="" alt="" className="bgImg"></img>
+        <image src={logo} alt=""></image>
       </div>
     </div>
   );

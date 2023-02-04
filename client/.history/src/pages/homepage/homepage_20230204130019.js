@@ -1,7 +1,4 @@
 import React from "react";
-import styles from "./homepage.css";
-// import Head from "next/head";
-//
 
 const homepage = () => {
   return (
@@ -153,10 +150,6 @@ const homepage = () => {
           </div>
         </div>
       </nav>
-
-      <div className="container">
-        <img src="" alt="" className="bgImg"></img>
-      </div>
     </div>
   );
 };
