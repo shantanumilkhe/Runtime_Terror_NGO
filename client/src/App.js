@@ -10,6 +10,7 @@ import AdminDashboard from "./pages/admin/Dashboard";
 import VolunteerDashboard from "./pages/volunteer/Dashboard";
 import InstituteLogin from "./pages/volunteer/Login";
 import InstituteResiter from "./pages/volunteer/Register";
+import Admin from "./pages/admin/Admin";
 // import AdminLogin from "./pages/admin/login";
 // import "swiper/css";
 // import "swiper/css/pagination";
@@ -26,11 +27,13 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
+        <Route path="/admin" element={<Admin />} />
         <Route path="/adminauth" element={<AdminLogin />} />
         <Route path="/instituteauth" element={<InstituteLogin />} />
         {/* <Route path="/institute/upload" element={<Upload />} /> */}
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         {/* <Route path="/institute/dashboard" element={<InstituteDashboard />} /> */}
+        <Route path="volunteer/Dashboard" element={<VolunteerDashboard />} />
         <Route path="volunteer/Dashboard" element={<VolunteerDashboard />} />
         <Route path="/instituteregister" element={<InstituteResiter />} />
       </Routes>
