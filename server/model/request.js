@@ -3,27 +3,27 @@ const mongoose = require('mongoose');
 const requestSchema = new mongoose.Schema({
     pendingCertificates:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student',
+        ref: 'Volunteer',
     }],
     declinedCertificates:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student',
+        ref: 'Volunteer',
     }],
     approvedCertificates:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student',
+        ref: 'Volunteer',
     }],
     pendinglor:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student',
+        ref: 'Volunteer',
     }],
     declinedlor:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student',
+        ref: 'Volunteer',
     }],
     approvedlor:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student',
+        ref: 'Volunteer',
     }],
 });
 
