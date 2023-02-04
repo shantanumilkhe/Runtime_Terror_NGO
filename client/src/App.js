@@ -9,8 +9,8 @@ import AdminDashboard from "./pages/admin/Dashboard";
 import VolunteerRegistration from "./pages/volunteer/Register";
 // import InstituteDashboard from "./pages/institute/Dashboard";
 import VolunteerDashboard from "./pages/volunteer/Dashboard";
-import InstituteLogin from "./pages/volunteer/Login";
-import InstituteResiter from "./pages/volunteer/Register";
+import VolunteerLogin from "./pages/volunteer/Login";
+import InstituteRegister from "./pages/institute/Register";
 import Admin from "./pages/admin/Admin";
 
 function App() {
@@ -20,13 +20,15 @@ function App() {
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/admin" element={<Admin />} />
         <Route path="/adminauth" element={<AdminLogin />} />
-        <Route path="/instituteauth" element={<InstituteLogin />} />
+        {/* <Route path="/instituteauth" element={<InstituteLogin />} /> */}
+        <Route path="/volunteerauth" element={<VolunteerLogin />} />
+
         {/* <Route path="/institute/upload" element={<Upload />} /> */}
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         {/* <Route path="/institute/dashboard" element={<InstituteDashboard />} /> */}
         <Route path="volunteer/Dashboard" element={<VolunteerDashboard />} />
         <Route path="volunteer/Register" element={<VolunteerRegistration />} />
-        <Route path="/instituteregister" element={<InstituteResiter />} />
+        <Route path="/instituteregister" element={<InstituteRegister />} />
       </Routes>
     </div>
   );
