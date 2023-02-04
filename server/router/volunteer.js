@@ -6,6 +6,7 @@ const Volunteer = require('../model/volunteerSchema');
 const multer  = require('multer');
 var shortid    = require('shortid');
 const student = require('../model/studentSchema');
+const converter = require('convert-excel-to-json');
 
 const upload = multer({storage: multer.diskStorage({
     destination: './uploads/',
@@ -17,7 +18,7 @@ const upload = multer({storage: multer.diskStorage({
 
 router.post('/uploadxlsx',passport.authenticate('jwt', { session: false }),upload.single('xlsx'), async (req, res) => {
    
-   
+    console.log(req.file);
     const result = converter({
         sourceFile: path.join(__dirname, '../uploads/'+req.file.filename),
         header: {
@@ -29,10 +30,13 @@ router.post('/uploadxlsx',passport.authenticate('jwt', { session: false }),uploa
             C:'phone',
             D:'location',
             E:'currentClass',
-           F:'boardGrade'
+           F:'boardGrade',
+           G:'course'
         }
     });
-    const vol = await Volunteer.findOne({_id:req.user._id});
+    console.log(req.user.id);
+    const vol = await Volunteer.findOne({_id:req.user.id});
+    console.log(vol);
     for(var i=0;i<result.data.length;i++){
         const exist = await student.findOne({phone:result.data[i].phone});
         if(!exist){

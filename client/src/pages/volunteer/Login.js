@@ -10,7 +10,7 @@ function Login() {
     const handleClick= async(e)=>{
         e.preventDefault();
         console.log(email,password);
-        axios.post("http://localhost:5000/instiauth/login",{
+        axios.post("http://localhost:5000/volauth/login",{
             email:email,
             password:password
         }).then((res)=>{

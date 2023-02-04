@@ -12,7 +12,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const handleClick = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/instiauth/register", {
+    await axios.post("http://localhost:5000/volauth/register", {
       name, email, phone, password, location,institute
     })
     .then((res) => console.log(res.data))

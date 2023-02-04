@@ -18,7 +18,7 @@ import VolunteerUpload from "./pages/volunteer/DragnDrop";
 import InstituteLogin from "./pages/institute/Login";
 import Admin from "./pages/admin/Admin";
 import InstituteDashboard from "./pages/institute/Dashboard";
-
+import Volunteer from "./pages/volunteer/Volunteer";
 function App() {
   return (
     <div className="App" width="100%">
@@ -41,6 +41,7 @@ function App() {
           path="/volunteer/dashboard/dragndrop"
           element={<VolunteerUpload />}
         />
+        <Route path='/volunteer' element={<Volunteer/>}/>
         <Route path="/institute/studentlist/:id" element={<StudentList />} />
         <Route path="/institute/register" element={<InstituteRegister />} />
         <Route path="/volunteer/Dashboard" element={<VolunteerDashboard />} />
