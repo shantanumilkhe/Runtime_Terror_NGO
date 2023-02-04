@@ -15,7 +15,7 @@ const upload = multer({storage: multer.diskStorage({
     }
 })});
 
-router.post('/uploadxlsx',upload.single('xlsx'), (req, res) => {
+router.post('/uploadxlsx',upload.single('xlsx'), async (req, res) => {
    
    
     const result = converter({
@@ -34,7 +34,8 @@ router.post('/uploadxlsx',upload.single('xlsx'), (req, res) => {
     });
 
     for(var i=0;i<result.data.length;i++){
-        if(!student.findOne({uid:result.data[i].phone})){
+        const exist = await student.findOne({phone:result.data[i].phone});
+        if(!exist){
         const newStudent = new student(result.data[i]);
         newStudent.assignedVolunteer = null;
         console.log(newStudent);

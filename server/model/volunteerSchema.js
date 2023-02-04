@@ -30,17 +30,21 @@ const volunteerSchema = new mongoose.Schema({
         require:true,
    }, 
    currentCourse:{
-        type:String,
+        type:Number,
         require:true,
    },
    grade:{
         type:Number,
         require:true,
-   }, 
+   },
    assignedStudents:[{
     type: mongoose.Schema.Types.ObjectId,
      ref: 'Student',
    }],
+   approval:{
+        type:Boolean,
+        default:false
+   }
 });
 
 volunteerSchema.pre('save', async function (next) {
