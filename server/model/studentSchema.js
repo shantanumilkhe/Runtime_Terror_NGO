@@ -29,10 +29,14 @@ const studentSchema = new mongoose.Schema({
         type:Number,
         require:true,
    }, 
-   assignedVolunteer:{
+   assignedInstitute:{
     type: mongoose.Schema.Types.ObjectId,
-     ref: 'Volunteer',
+     ref: 'Institute',
    },
+   course:{
+        type:String,
+        require:true,
+   }
 });
 
 

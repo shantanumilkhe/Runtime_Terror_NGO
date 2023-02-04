@@ -31,7 +31,7 @@ router.get('/getallinstitutes', async (req, res) => {
 
 router.get('/getallvolunteer', async (req, res) => {
     try {
-        const volunteer = await Volunteer.find();
+        const volunteer = await Volunteer.find({ approval: true });
         console.log(volunteer);
     } catch (error) {
         console.log(error);
@@ -41,12 +41,20 @@ router.get('/getallvolunteer', async (req, res) => {
 router.get('/unassigned', async (req, res) => {
     try {
         let students = Student.findAll({ assginedVolunteer: null });
-        let volunteers = Volunteer.findAll({ approved: true });
+        let volunteers = Volunteer.findAll({ approval: true });
         console.log(students);
         console.log('-----')
         console.log(volunteers);
     } catch (error) {
         console.log(error);
+    }
+})
+
+router.get('/unapprovedvolunteers', async (req, res) => {
+    try{
+        
+    } catch(error){
+        console.log(error)
     }
 })
 

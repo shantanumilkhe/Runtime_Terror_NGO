@@ -16,6 +16,16 @@ const instituteSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    location:{
+        type:String,
+        require:true,
+    },
+    courses:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'seats',
+        require: true
+    },
+   
 });
 
 instituteSchema.pre('save', async function (next) {
@@ -36,6 +46,6 @@ instituteSchema.methods.generateAuthToken = async function () {
     }
 }
 
-const institute = mongoose.model('Institute', instituteSchema);
+const Institute = mongoose.model('Institute', instituteSchema);
 
-module.exports = institute;
+module.exports = Institute;
