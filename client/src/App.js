@@ -7,6 +7,8 @@ import AdminLogin from "./pages/admin/Login";
 import Upload from "./pages/institute/Upload";
 import AdminDashboard from "./pages/admin/Dashboard";
 import InstituteDashboard from "./pages/institute/Dashboard";
+import InstituteLogin from "./pages/institute/Login";
+import InstituteResiter from "./pages/institute/Register";
 // import AdminLogin from "./pages/admin/login";
 // import "swiper/css";
 // import "swiper/css/pagination";
@@ -24,8 +26,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/adminauth" element={<AdminLogin />} />
+        <Route path="/instituteauth" element={<InstituteLogin />} />
         <Route path="/institute/upload" element={<Upload />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/institute/dashboard" element={<InstituteDashboard />} />
+        <Route path="/instituteregister" element={<InstituteResiter />} />
       </Routes>
     </div>
   );
