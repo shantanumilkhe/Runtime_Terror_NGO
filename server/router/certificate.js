@@ -3,18 +3,19 @@ const router = express.Router();
 const Volunteer = require('../model/volunteerSchema');
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
-
-function jumpLine(doc, lines) {
-    for (let index = 0; index < lines; index++) {
-      doc.moveDown();
-    }
-  }
-
+const Request = require('../model/request');
 
 router.get('/generatecertificate/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const Volunt = await Volunteer.findOne({ _id: id });
+        const newReq = await Request.findOne();
+        if(newReq.pendingCertificates.includes(id)){
+        newReq.pendingCertificates.pull(id);
+        newReq.save();
+        }
+        newReq.approvedCertificates.push(id);
+        newReq.save();
 
         
 const doc = new PDFDocument({
