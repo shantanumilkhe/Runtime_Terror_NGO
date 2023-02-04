@@ -1,9 +1,10 @@
 const express = require('express');
-const router = express.Router();
 const Seats = require('../model/seats');
+const passport = require('passport');
+const router = express.Router();
 
 
-router.post('/addnewseats/:id', async (req, res) => {
+router.post('/addnewseats/:id',passport.authenticate('jwt', { session: false }), async (req, res) => {
     try{
          const id = req.params.id;
          const seats = req.body.seats;
@@ -19,7 +20,7 @@ router.post('/addnewseats/:id', async (req, res) => {
     }
 })
 
-router.post('/updateseats/:id', async (req, res) => {
+router.post('/updateseats/:id',passport.authenticate('jwt', { session: false }), async (req, res) => {
    try{
     const id = req.params.id;
     const seats = req.body.seats;
@@ -32,7 +33,7 @@ router.post('/updateseats/:id', async (req, res) => {
     }
 })
 
-router.get('getstudentsassigned/:id', async (req, res) => {
+router.get('getstudentsassigned/:id',passport.authenticate('jwt', { session: false }), async (req, res) => {
     try{
         const id = req.params.id;
         const students = await Seats.findeOne({_id:id}).populate('assignedStudents');
@@ -47,6 +48,8 @@ router.get('getstudentsassigned/:id', async (req, res) => {
         console.log(error)
     }
 })
+
+
 
 
 module.exports = router;

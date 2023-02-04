@@ -18,9 +18,9 @@ router.get('/authenticate', passport.authenticate('jwt', { session: false }), as
 router.post('/register', async (req, res) => {
     try {
         
-        const { name, email, phone, password, location,institute,currentCourse,grade } = req.body;
+        const { name, email, phone, password, location,institute } = req.body;
 
-        if (!name || !email || !phone || !password || !location || !institute || !currentCourse ||!grade) {
+        if (!name || !email || !phone || !password || !location || !institute) {
             return res.status(422).send({ message: "Please fill properly" })
         }
         const VolunteerExist = await Volunt.findOne({ email: email })
@@ -29,7 +29,7 @@ router.post('/register', async (req, res) => {
             return res.status(422).send({ message: "Account already Exists" })
         }
 
-        const Volunteer = new Volunt({ name, email, phone, password, location,institute,currentCourse,grade });
+        const Volunteer = new Volunt({ name, email, phone, password, location,institute });
         const saveVolunteer = Volunteer.save()
 
         if (saveVolunteer) {
