@@ -1,164 +1,417 @@
 import React from "react";
-import styles from "./homepage.css";
-// import Head from "next/head";
-//
+import "./fontawesome-all.css";
+import "./magnific-popup.css";
+import "./styles.css";
 
-const homepage = () => {
+function homepage() {
   return (
-    <div className="homepage">
-      <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-        <div class="container flex flex-wrap items-center justify-between mx-auto">
-          <a href="https://flowbite.com/" class="flex items-center">
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              class="h-6 mr-3 sm:h-9"
-              alt="Flowbite Logo"
-            />
-            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Edc.NGO
-            </span>
-          </a>
-          <div class="flex md:order-2">
-            <button
-              type="button"
-              data-collapse-toggle="navbar-search"
-              aria-controls="navbar-search"
-              aria-expanded="false"
-              class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1"
-            >
-              <svg
-                class="w-5 h-5"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              <span class="sr-only">Search</span>
-            </button>
-            <div class="relative hidden md:block">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  class="w-5 h-5 text-gray-500"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="sr-only">Search icon</span>
-              </div>
-              <input
-                type="text"
-                id="search-navbar"
-                class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search..."
-              />
-            </div>
-            <button
-              data-collapse-toggle="navbar-search"
-              type="button"
-              class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-search"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Open menu</span>
-              <svg
-                class="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <div
-            class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-            id="navbar-search"
+    <div>
+      <nav className="navbar fixed-top">
+        <div className="container sm:px-4 lg:px-8 flex flex-wrap items-center justify-between lg:flex-nowrap">
+          <a
+            className="inline-block mr-4 py-0.5 text-xl whitespace-nowrap hover:no-underline focus:no-underline"
+            href="index.html"
           >
-            <div class="relative mt-3 md:hidden">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  class="w-5 h-5 text-gray-500"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </div>
-              <input
-                type="text"
-                id="search-navbar"
-                class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search..."
-              />
-            </div>
-            <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <h5>Education.IO</h5>
+            {/* <img src="images/logo.svg" alt="alternative" className="h-8" /> */}
+          </a>
+
+          <button
+            className="background-transparent rounded text-xl leading-none hover:no-underline focus:no-underline lg:hidden lg:text-gray-400"
+            type="button"
+            data-toggle="offcanvas"
+          >
+            <span className="navbar-toggler-icon inline-block w-8 h-8 align-middle"></span>
+          </button>
+
+          <div
+            className="navbar-collapse offcanvas-collapse lg:flex lg:flex-grow lg:items-center"
+            id="navbarsExampleDefault"
+          >
+            <ul className="pl-0 mt-3 mb-2 ml-auto flex flex-col list-none lg:mt-0 lg:mb-0 lg:flex-row">
               <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                  aria-current="page"
-                >
-                  Home
+                <a className="nav-link page-scroll active" href="#header">
+                  Home <span className="sr-only">(current)</span>
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
-                  About
+                <a className="nav-link page-scroll" href="#features">
+                  Features
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
+                <a className="nav-link page-scroll" href="#details">
                   Volunteer
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
+                <a className="nav-link page-scroll" href="#pricing">
                   Institute
                 </a>
               </li>
+              <li className="dropdown">
+                <div className="dropdown-menu" aria-labelledby="dropdown01">
+                  <a className="dropdown-item page-scroll" href="article.html">
+                    Article Details
+                  </a>
+                  <div className="dropdown-divider"></div>
+                  <a className="dropdown-item page-scroll" href="terms.html">
+                    Terms Conditions
+                  </a>
+                  <div className="dropdown-divider"></div>
+                  <a className="dropdown-item page-scroll" href="privacy.html">
+                    Privacy Policy
+                  </a>
+                </div>
+              </li>
             </ul>
+            <span className="block lg:ml-3.5">
+              <a className="no-underline" href="#your-link">
+                <i className="fab fa-apple text-indigo-600 hover:text-pink-500 text-xl transition-all duration-200 mr-1.5"></i>
+              </a>
+              <a className="no-underline" href="#your-link">
+                <i className="fab fa-android text-indigo-600 hover:text-pink-500 text-xl transition-all duration-200"></i>
+              </a>
+            </span>
           </div>
         </div>
       </nav>
+      {/* <!-- end of navigation --> */}
 
-      <div className="container">
-        <img src="" alt="" className="bgImg"></img>
+      {/* <!-- Header --> */}
+      <header
+        id="header"
+        className="header py-28 text-center md:pt-36 lg:text-left xl:pt-44 xl:pb-32"
+      >
+        <div className="container px-4 sm:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
+          <div className="mb-16 lg:mt-32 xl:mt-40 xl:mr-12">
+            <h1 className="h1-large mb-5">
+              Education for everyone available everywhere
+            </h1>
+            <p className="p-large mb-8">
+              Non-profit organization that provides free education to everyone
+            </p>
+            <a className="btn-solid-lg" href="#your-link">
+              <i className="fab fa-apple"></i>Volunteer
+            </a>
+            <a className="btn-solid-lg secondary" href="#your-link">
+              <i className="fab fa-google-play"></i>Institute
+            </a>
+          </div>
+          <div className="xl:text-right">
+            <img
+              className="inline"
+              src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201611/underprivileged-children-647_111616054051.jpg?VersionId=zoABG8Jv7J967Mmyb37Dwq1GvgwqFkMH"
+              alt="StudentImage"
+            />
+          </div>
+        </div>
+      </header>
+
+      {/* <!-- Introduction --> */}
+      <div className="pt-4 pb-14 text-center">
+        <div className="container px-4 sm:px-8 xl:px-4"></div>
+      </div>
+      {/* <!-- end of introduction --> */}
+
+      <div id="features" className="cards-1">
+        <div className="container px-4 sm:px-8 xl:px-4">
+          <div className="card">
+            <div className="card-image">
+              <img src="images/features-icon-1.svg" alt="alternative" />
+            </div>
+            <div className="card-body">
+              <h5 className="card-title">Platform Integration</h5>
+              <p className="mb-4">
+                You sales force can use the app on any smartphone platform
+                without compatibility issues
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="card-image">
+              <img src="images/features-icon-2.svg" alt="alternative" />
+            </div>
+            <div className="card-body">
+              <h5 className="card-title">Easy On Resources</h5>
+              <p className="mb-4">
+                Works smoothly even on older generation hardware due to our
+                optimization efforts
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="card-image">
+              <img src="images/features-icon-3.svg" alt="alternative" />
+            </div>
+            <div className="card-body">
+              <h5 className="card-title">Great Performance</h5>
+              <p className="mb-4">
+                Optimized code and innovative technology insure no delays and
+                ultra-fast responsiveness
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="card-image">
+              <img src="images/features-icon-4.svg" alt="alternative" />
+            </div>
+            <div className="card-body">
+              <h5 className="card-title">Multiple Languages</h5>
+              <p className="mb-4">
+                Choose from one of the 40 languages that come pre-installed and
+                start selling smarter
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="card-image">
+              <img src="images/features-icon-5.svg" alt="alternative" />
+            </div>
+            <div className="card-body">
+              <h5 className="card-title">Free Updates</h5>
+              <p className="mb-4">
+                Don't worry about future costs, pay once and receive all future
+                updates at no extra cost
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="card-image">
+              <img src="images/features-icon-6.svg" alt="alternative" />
+            </div>
+            <div className="card-body">
+              <h5 className="card-title">Community Support</h5>
+              <p className="mb-4">
+                Register the app and get acces to knowledge and ideas from the
+                Pavo online community
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="details-lightbox"
+        className="lightbox-basic zoom-anim-dialog mfp-hide"
+      >
+        <div className="lg:grid lg:grid-cols-12 lg:gap-x-8">
+          <button
+            title="Close (Esc)"
+            type="button"
+            className="mfp-close x-button"
+          >
+            ×
+          </button>
+          <div className="lg:col-span-8">
+            <div className="mb-12 text-center lg:mb-0 lg:text-left xl:mr-6">
+              <img
+                className="inline rounded-lg"
+                src="images/details-lightbox.jpg"
+                alt="alternative"
+              />
+            </div>
+          </div>
+          <div className="lg:col-span-4">
+            <h3 className="mb-2">Goals Setting</h3>
+            <hr className="w-11 h-0.5 mt-0.5 mb-4 ml-0 border-none bg-indigo-600" />
+            <p>
+              The app can easily help you track your personal development
+              evolution if you take the time to set it up.
+            </p>
+            <h4 className="mt-7 mb-2.5">User Feedback</h4>
+            <p className="mb-4">
+              This is a great app which can help you save time and make your
+              live easier. And it will help improve your productivity.
+            </p>
+            <ul className="list mb-6 space-y-2">
+              <li className="flex">
+                <i className="fas fa-chevron-right"></i>
+                <div>Splash screen panel</div>
+              </li>
+              <li className="flex">
+                <i className="fas fa-chevron-right"></i>
+                <div>Statistics graph report</div>
+              </li>
+              <li className="flex">
+                <i className="fas fa-chevron-right"></i>
+                <div>Events calendar layout</div>
+              </li>
+              <li className="flex">
+                <i className="fas fa-chevron-right"></i>
+                <div>Location details screen</div>
+              </li>
+              <li className="flex">
+                <i className="fas fa-chevron-right"></i>
+                <div>Onboarding steps interface</div>
+              </li>
+            </ul>
+            <a className="btn-solid-reg mfp-close page-scroll" href="#download">
+              Volunteer
+            </a>
+            <button
+              className="btn-outline-reg mfp-close as-button"
+              type="button"
+            >
+              Back
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="counter">
+        <div className="container px-4 sm:px-8">
+          <div id="counter">
+            <div className="cell">
+              <div className="counter-value number-count" data-count="231">
+                1
+              </div>
+              <p className="counter-info">Happy Users</p>
+            </div>
+            <div className="cell">
+              <div className="counter-value number-count" data-count="385">
+                1
+              </div>
+              <p className="counter-info">Issues Solved</p>
+            </div>
+            <div className="cell">
+              <div className="counter-value number-count" data-count="159">
+                1
+              </div>
+              <p className="counter-info">Good Reviews</p>
+            </div>
+            <div className="cell">
+              <div className="counter-value number-count" data-count="127">
+                1
+              </div>
+              <p className="counter-info">Case Studies</p>
+            </div>
+            <div className="cell">
+              <div className="counter-value number-count" data-count="211">
+                1
+              </div>
+              <p className="counter-info">Orders Received</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="slider-1 py-32 bg-gray">
+        <div className="container px-4 sm:px-8">
+          <h2 className="mb-12 text-center lg:max-w-xl lg:mx-auto">
+            What do users think about Education.IO
+          </h2>
+
+          <div className="slider-container">
+            <div className="swiper-container card-slider">
+              <div className="swiper-wrapper">
+                <div className="swiper-slide">
+                  <div className="card">
+                    <div className="card-body">
+                      <p className="italic mb-3">
+                        It's been so fun to work with Education.IO, I've managed
+                        to integrate it properly into my academics work flow
+                        flow and it's great
+                      </p>
+                      <p className="testimonial-author">
+                        Prince Mishre - student
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="swiper-button-next"></div>
+              <div className="swiper-button-prev"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <!-- Footer --> */}
+      <div className="footer">
+        <div className="container px-4 sm:px-8">
+          <h4 className="mb-8 lg:max-w-3xl lg:mx-auto">
+            Reach out as at:{" "}
+            <a
+              className="text-indigo-600 hover:text-gray-500"
+              href="mailto:email@domain.com"
+            >
+              RuntimeTerror@spit.ac.in
+            </a>
+          </h4>
+          <div className="social-container">
+            <span className="fa-stack">
+              <a href="#your-link">
+                <i className="fas fa-circle fa-stack-2x"></i>
+                <i className="fab fa-facebook-f fa-stack-1x"></i>
+              </a>
+            </span>
+            <span className="fa-stack">
+              <a href="#your-link">
+                <i className="fas fa-circle fa-stack-2x"></i>
+                <i className="fab fa-twitter fa-stack-1x"></i>
+              </a>
+            </span>
+            <span className="fa-stack">
+              <a href="#your-link">
+                <i className="fas fa-circle fa-stack-2x"></i>
+                <i className="fab fa-pinterest-p fa-stack-1x"></i>
+              </a>
+            </span>
+            <span className="fa-stack">
+              <a href="#your-link">
+                <i className="fas fa-circle fa-stack-2x"></i>
+                <i className="fab fa-instagram fa-stack-1x"></i>
+              </a>
+            </span>
+            <span className="fa-stack">
+              <a href="#your-link">
+                <i className="fas fa-circle fa-stack-2x"></i>
+                <i className="fab fa-youtube fa-stack-1x"></i>
+              </a>
+            </span>
+          </div>
+        </div>
+
+        {/* <!-- Copyright --> */}
+        <div className="copyright">
+          <div className="container px-4 sm:px-8 lg:grid lg:grid-cols-3">
+            <ul className="mb-4 list-unstyled p-small">
+              <li className="mb-2">
+                <a href="article.html">Article Details</a>
+              </li>
+              <li className="mb-2">
+                <a href="terms.html">Terms & Conditions</a>
+              </li>
+              <li className="mb-2">
+                <a href="privacy.html">Privacy Policy</a>
+              </li>
+            </ul>
+            <p className="pb-2 p-small statement">
+              Copyright ©{" "}
+              <a href="#your-link" className="no-underline">
+                Runtime Terror
+              </a>
+            </p>
+
+            <p className="pb-2 p-small statement">
+              Distributed by :
+              <a href="https://themewagon.com/" className="no-underline">
+                Runtime Terror
+              </a>
+            </p>
+          </div>
+        </div>
+        {/* <!-- end of copyright --> */}
       </div>
     </div>
   );
-};
+}
 
 export default homepage;
