@@ -1,5 +1,6 @@
 const express = require('express');
 const passport = require('passport');
+const path = require('path');
 const router = express.Router();
 const Volunteer = require('../model/volunteerSchema');
 const multer  = require('multer');
@@ -47,5 +48,15 @@ router.post('/uploadxlsx',passport.authenticate('jwt', { session: false }),uploa
     console.log("Data inserted");
 
 });
+
+router.get('/getcertificates/:id', async (req, res) => {
+    const id = req.params.id;
+    const vol = await Volunteer.findOne({_id:id});
+   const certificate = vol.certificate;
+    const certificatePath = path.join(__dirname, '../certificates/');
+
+   res.sendFile(certificate, { root: certificatePath });
+
+})
 
 module.exports = router;
