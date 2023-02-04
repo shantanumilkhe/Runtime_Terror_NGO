@@ -61,6 +61,6 @@ volunteerSchema.methods.generateAuthToken = async function () {
     }
 }
 
-const Volunteer = mongoose.model('Student', volunteerSchema);
+const Volunteer = mongoose.model('Volunteer', volunteerSchema);
 
 module.exports = Volunteer;
