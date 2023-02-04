@@ -37,11 +37,14 @@ db.once("open", () => {
 
 require('./config/passjwt');
 
+const volunteer = require('./router/volunteer');
+const institute = require('./router/institute');
+const admin = require('./router/admin');
 app.use('/volauth',volunteerAuth);
 app.use('/instiauth',instituteAuth);
-app.use('/vol',require('./router/volunteer'));
-app.use('/insti',require('./router/institute'));
-app.use('/admin',require('./router/admin'));
+app.use('/vol',volunteer);
+app.use('/insti',institute);
+app.use('/admin',admin);
 
 
 app.listen(port, ()=>{
