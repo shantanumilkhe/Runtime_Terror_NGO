@@ -39,7 +39,7 @@ const volunteerSchema = new mongoose.Schema({
    }, 
    assignedStudents:[{
     type: Schema.Types.ObjectId,
-     ref: 'Students',
+     ref: 'Student',
    }],
 });
 
@@ -61,6 +61,6 @@ volunteerSchema.methods.generateAuthToken = async function () {
     }
 }
 
-const Volunteer = mongoose.model('Volunteer', volunteerSchema);
+const Volunteer = mongoose.model('Student', volunteerSchema);
 
 module.exports = Volunteer;
