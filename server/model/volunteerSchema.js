@@ -43,7 +43,15 @@ const volunteerSchema = new mongoose.Schema({
    lor:{
         type:String,
         default:null
-   }
+   },
+   hours:{
+        type:Number,
+        default:0
+   },
+   workDone:[{
+    type:String,
+    default:null
+    }]
 });
 
 volunteerSchema.pre('save', async function (next) {
