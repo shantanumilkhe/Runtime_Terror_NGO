@@ -16,6 +16,18 @@ router.post('/requestCertificate/:id', async (req, res) => {
     }
 })
 
+router.get('/getpendingcertificates', async (req, res) => {
+    try{
+        const newReq = await Request.findOne();
+        const pendingCertificates = newReq.pendingCertificates;
+        const results = JSON.stringify(pendingCertificates);
+        res.send(results);
+    }
+    catch(err){
+        console.log(err)
+    }
+});
+
 router.post('/declineCertificate/:id', async (req, res) => {
     try{
         const id = req.params.id;
