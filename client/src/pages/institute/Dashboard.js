@@ -1,10 +1,12 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 import './dashboard.css'
+import StudentList from './StudentList'
 const Dashboard = () => {
     const [seat,setSeat] = useState(0)
     const [course,setCourse] = useState("")
-    const [number,setNumber] = useState(1)
+    const [number,setNumber] = useState(2)
+    const [courselist,setCourseList] = useState(null)
     const handleClick = (e) => {
         e.preventDefault();
         console.log(course)
@@ -24,6 +26,18 @@ const Dashboard = () => {
         )
 
     }
+   const fetchCourseOffered = () => {
+         const token = localStorage.getItem('token');
+         axios.get('http://localhost:5000/insti/getcourses',{headers:{'Authorization':token}}).then((res)=>{
+                console.log(res.data)
+                setCourseList(res.data)
+         }).catch((err)=>{
+            console.log(err)
+         })
+   }
+   useEffect(()=>{
+    fetchCourseOffered();
+   },[])
   return (
     <div >
           <button
@@ -44,7 +58,9 @@ const Dashboard = () => {
           <li>
               <div
                 class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                onClick={() => setNumber(1)}
+                onClick={() =>{
+                    setNumber(1)
+                } }
               >
                 <svg
                   aria-hidden="true"
@@ -60,14 +76,14 @@ const Dashboard = () => {
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">Add New Courses</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">Courses Offered</span>
               </div>
             </li>
             <li>
               <div
                 href="#"
                 class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                onClick={() => setNumber(1)}
+                onClick={() =>{setNumber(2)} }
               >
                 <svg
                   aria-hidden="true"
@@ -89,8 +105,8 @@ const Dashboard = () => {
         </div>
       </aside>
    
-
-{number==1 && 
+<div className="p-4 sm:ml-64">
+{number==2 && 
 <div className='w-1/3 mx-auto my-auto '>
 <form  style={{margin:"auto",marginTop:"20px"}}>
     
@@ -122,7 +138,14 @@ onChange={(e)=>{console.log(e.target.value);
 </div>
 
 }
+{number==1 && 
 
+{/* <div className="ml-50">
+    <StudentList/>
+</div> */}
+}
+
+</div>
 
     </div>
     
