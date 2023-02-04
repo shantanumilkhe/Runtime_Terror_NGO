@@ -6,9 +6,9 @@ const { findOne } = require('../model/volunteerSchema');
 const router = express.Router();
 
 
-router.post('/addnewseats/:id', passport.authenticate('jwt', { session: false }), async (req, res) => {
+router.post('/addnewseats', passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
-        const id = req.params.id;
+        const id = req.user.id;
         const givenseats = req.body.seats;
         const courseProvided = req.body.courseProvided;
         const course = new Seat({
