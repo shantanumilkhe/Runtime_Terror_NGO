@@ -49,13 +49,23 @@ router.post('/uploadxlsx',passport.authenticate('jwt', { session: false }),uploa
 
 });
 
-router.get('/getcertificates/:id', async (req, res) => {
+router.get('/getcertificates/:id',passport.authenticate('jwt', { session: false }), async (req, res) => {
     const id = req.params.id;
     const vol = await Volunteer.findOne({_id:id});
    const certificate = vol.certificate;
     const certificatePath = path.join(__dirname, '../certificates/');
 
    res.sendFile(certificate, { root: certificatePath });
+
+})
+
+router.get('/getLOR/:id', async (req, res) => {
+    const id = req.params.id;
+    const vol = await Volunteer.findOne({_id:id});
+   const LOR = vol.lor;
+    const LORPath = path.join(__dirname, '../LORS/');
+
+   res.sendFile(LOR, { root: LORPath });
 
 })
 

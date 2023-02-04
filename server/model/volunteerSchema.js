@@ -39,6 +39,10 @@ const volunteerSchema = new mongoose.Schema({
    certificate:{
         type:String,
         default:null
+   },
+   lor:{
+        type:String,
+        default:null
    }
 });
 
