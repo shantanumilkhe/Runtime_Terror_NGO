@@ -3,13 +3,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const passport = require('passport');
-const User = require('../model/userSchema');
+const Institute = require('../model/instituteSchema');
 require('../config/passjwt');
-
-router.get('/', (req, res) => {
-    console.log("In the page");
-    res.send("Welcome to the page from auth.js");
-});
 
 router.get('/authenticate', passport.authenticate('jwt', { session: false }), async (req, res) => {
     if (req.user == null) {
@@ -22,30 +17,26 @@ router.get('/authenticate', passport.authenticate('jwt', { session: false }), as
 
 router.post('/register', async (req, res) => {
     try {
-        const { name, email, phone, password, cpassword } = req.body;
+        const { name, email,password} = req.body;
 
-        if (!name || !email || !phone || !password || !cpassword) {
+        if (!name || !email || !password) {
             return res.status(422).send({ message: "Please fill properly" })
         }
-        const userExist = await User.findOne({ email: email })
+        const InstituteExist = await Institute.findOne({ email: email })
 
-        if (userExist) {
+        if (InstituteExist) {
             return res.status(422).send({ message: "Account already Exists" })
         }
-        else if (password != cpassword) {
-            return res.status(422).send({ message: "Password dosen't match" })
-        }
 
-        const user = new User({ name, email, phone, password, cpassword });
-        const saveUser = await user.save()
+        const Institute = new Institute({name, email,password});
+        const saveInstitute = await Institute.save()
 
-        if (saveUser) {
+        if (saveInstitute) {
             res.status(201).send({ message: "Registeration Successful! Please Login Now" })
         }
         else {
             res.status(500).send({ message: "Registeration Failed" })
         }
-
     } catch (err) {
         console.log(err);
     }
@@ -59,19 +50,19 @@ router.post('/login', async (req, res) => {
         if (!email || !password) {
             return res.status(422).send({ message: "Please fill the data" });
         }
-        const userExist = await User.findOne({ email: email });
+        const InstituteExist = await Institute.findOne({ email: email });
 
-        if (!userExist) {
+        if (!InstituteExist) {
             return res.status(500).send({ message: "Invalid Info" });
         }
 
-        const matchPass = await bcrypt.compare(password, userExist.password);
+        const matchPass = await bcrypt.compare(password, InstituteExist.password);
 
         if (matchPass) {
 
             const payload = {
-                username: userExist.name,
-                id: userExist._id
+                Institutename: InstituteExist.name,
+                id: InstituteExist._id
             }
 
             const token = jwt.sign(payload, "SECRETKEY", { expiresIn: "1d" })
