@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import AdminLogin from "./pages/admin/Login";
 import Upload from "./pages/institute/Upload";
 import AdminDashboard from "./pages/admin/Dashboard";
+import InstituteDashboard from "./pages/institute/Dashboard";
 // import AdminLogin from "./pages/admin/login";
 // import "swiper/css";
 // import "swiper/css/pagination";
