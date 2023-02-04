@@ -1,51 +1,56 @@
-import React,{useEffect, useState} from 'react'
-import axios from 'axios'
-import './dashboard.css'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./dashboard.css";
+import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
-    const navigate=useNavigate()
-    const [seat,setSeat] = useState(0)
-    const [course,setCourse] = useState("")
-    const [number,setNumber] = useState(1)
-    const [courselist,setCourseList] = useState(null)
-    const [success,setSuccess] = useState(false)
-    const handleClick = (e) => {
-        e.preventDefault();
-        console.log(course)
-        console.log(seat)
-        // get token from local storage
-        const token = localStorage.getItem('token');
-        console.log(token)
-        axios.post('http://localhost:5000/insti/addnewseats',{
-            course:course,
-            seat:seat
-        },{headers:{'Authorization':token}}).then((res)=>{
-            console.log(res.data)
-        }
-        ).catch((err)=>{
-            console.log(err)
-        }
-        )
-
-    }
-   const fetchCourseOffered = () => {
-         const token = localStorage.getItem('token');
-         axios.get('http://localhost:5000/insti/getcourses',{headers:{'Authorization':token}}).then((res)=>{
-                console.log(res.data.courses)
-                setCourseList(res.data.courses)
-         }).catch((err)=>{
-            console.log(err)
-         })
-   }
-   useEffect(()=>{
+  const navigate = useNavigate();
+  const [seat, setSeat] = useState(0);
+  const [course, setCourse] = useState("");
+  const [number, setNumber] = useState(1);
+  const [courselist, setCourseList] = useState(null);
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log(course);
+    console.log(seat);
+    // get token from local storage
+    const token = localStorage.getItem("token");
+    console.log(token);
+    axios
+      .post(
+        "http://localhost:5000/insti/addnewseats",
+        {
+          course: course,
+          seat: seat,
+        },
+        { headers: { Authorization: token } }
+      )
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const fetchCourseOffered = () => {
+    const token = localStorage.getItem("token");
+    axios
+      .get("http://localhost:5000/insti/getcourses", {
+        headers: { Authorization: token },
+      })
+      .then((res) => {
+        console.log(res.data.courses);
+        setCourseList(res.data.courses);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
     fetchCourseOffered();
-   },[number])
-   useEffect(()=>{
-    fetchCourseOffered();
-   },[])
+  }, [, number]);
   return (
-    <div >
-          <button
+    <div>
+      <button
         data-drawer-target="sidebar-multi-level-sidebar"
         data-drawer-toggle="sidebar-multi-level-sidebar"
         aria-controls="sidebar-multi-level-sidebar"
@@ -60,14 +65,14 @@ const Dashboard = () => {
       >
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           <ul class="space-y-2">
-          <li>
+            <li>
               <div
                 class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                onClick={() =>{
-                    setCourse("")
-                    setSeat(0)
-                    setNumber(1)
-                } }
+                onClick={() => {
+                  setCourse("");
+                  setSeat(0);
+                  setNumber(1);
+                }}
               >
                 <svg
                   aria-hidden="true"
@@ -83,14 +88,18 @@ const Dashboard = () => {
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">Courses Offered</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">
+                  Courses Offered
+                </span>
               </div>
             </li>
             <li>
               <div
                 href="#"
                 class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                onClick={() =>{setNumber(2)} }
+                onClick={() => {
+                  setNumber(2);
+                }}
               >
                 <svg
                   aria-hidden="true"
@@ -111,131 +120,148 @@ const Dashboard = () => {
           </ul>
         </div>
       </aside>
-   
-<div className="p-4 sm:ml-64">
-{number==2 && 
-<>
-{ success &&
-    <div id="alert-3" class="flex p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-    <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-    <span class="sr-only">Info</span>
-    <div class="ml-3 text-sm font-medium">
-      Course Added Successfully !<a href="#" class="font-semibold underline hover:no-underline"></a>. 
-    </div>
-    <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-3" aria-label="Close">
-      <span class="sr-only">Close</span>
-      <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-    </button>
-  </div>
-}
 
-<div className='w-1/3 mx-auto my-auto '>
-<form  style={{margin:"auto",marginTop:"20px"}}>
-    
-    <label for="courses" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Select an option</label>
-<select id="courses" class="bg-gray-50 border border-gray-300 text-black-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white-700 dark:border-gray-600 dark:placeholder-black-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-onChange={(e)=>{console.log(e.target.value);
-    setCourse(e.target.value)
-}}>
-<option value=""  >Courses</option>
-<option value="JEE" >JEE</option>
-<option value="NEET" >NEET</option>
-<option value="UPSC" >UPSC</option>
-<option value="MPSC">MPSC</option>
-</select>
+      <div className="p-4 sm:ml-64">
+        {number == 2 && (
+          <div className="w-1/3 mx-auto my-auto ">
+            <form style={{ margin: "auto", marginTop: "20px" }}>
+              <label
+                for="courses"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                className="field"
+              >
+                Select an option
+              </label>
+              <select
+                id="courses"
+                class="bg-gray-50 border border-gray-300 text-black-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white-700 dark:border-gray-600 dark:placeholder-black-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  setCourse(e.target.value);
+                }}
+              >
+                <option value="">Courses</option>
+                <option value="JEE">JEE</option>
+                <option value="NEET">NEET</option>
+                <option value="UPSC">UPSC</option>
+                <option value="MPSC">MPSC</option>
+              </select>
 
-<div class="relative z-0 w-full mb-6 group">
-   <input type="number" name="floating_password" id="floating_password" value={seat} class="block py-2.5 px-0 w-full text-md text-black-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 
-   my-5 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required 
-   onChange={
-     (e)=>{
-         setSeat(e.target.value)
-     }
-   }
-   />
-   <label for="floating_password" class="peer-focus:font-medium absolute text-md text-black-500 dark:text-black-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">No. of Seat</label>
-</div>
-<button  onClick={handleClick} class="text-white bg-gray-700 hover:bg-black-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-black-600 dark:hover:bg-black-700 dark:focus:ring-black-800">Submit</button>
-</form> 
-</div>
-</>
-
-
-}
-{number==1 && 
-
- <div className="ml-50">
-    {/* <StudentList/> */}
-    <div >
-        <p class="text-4xl font-black text-gray-900 dark:text-gray-900">Courses</p>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th scope="col" class="px-6 py-3">
-                Course 
-              </th>
-              <th scope="col" class="px-6 py-3">
-               Total Seat
-              </th>
-              <th scope="col" class="px-6 py-3">
-                No. of Assigned Students
-              </th>
-              <th scope="col" class="px-6 py-3">
-              Remaining Seats
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Action
-             
-              </th>
-             
-            </tr>
-          </thead>
-          <tbody>
-            {courselist?courselist.map((course,idx)=>
-              
-              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {course.courseProvided}
-              </th>
-              <td class="px-6 py-4">
-                {course.seats}
-              </td>
-              <td class="px-6 py-4">
-              {course.assignedStudents.length}
-              </td>
-              <td class="px-6 py-4">
-              {course.seats-course.assignedStudents.length}
-              </td>
-              <td class="px-6 py-4">
-                {course.assignedStudents.length>0 && 
-                <button type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" onClick={()=>{
-                    navigate(`/institute/dashboard/${course._id}`)
-                }} >Show Students</button>
-                }
-                {
-                    course.assignedStudents.length==0 &&
-                    <button type="button" class="py-2.5 cursor-not-allowed px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" disabled>show Students</button>
-                }
-                 
-             
-              </td>
-            
-            </tr>
-            ):null}
-          </tbody>
-        </table>
+              <div class="relative z-0 w-full mb-6 group">
+                <input
+                  type="number"
+                  name="floating_password"
+                  id="floating_password"
+                  value={seat}
+                  class="block py-2.5 px-0 w-full text-md text-black-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 
+   my-5 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer"
+                  placeholder=" "
+                  required
+                  onChange={(e) => {
+                    setSeat(e.target.value);
+                  }}
+                />
+                <label
+                  for="floating_password"
+                  // className="field"
+                  class="peer-focus:font-medium absolute text-md text-white-500 dark:text-white-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white-600 peer-focus:dark:text-white-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  No. of Seat
+                </label>
+              </div>
+              <button
+                onClick={handleClick}
+                class="text-white bg-gray-700 hover:bg-black-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-black-600 dark:hover:bg-black-700 dark:focus:ring-black-800"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        )}
+        {number == 1 && (
+          <div className="ml-50">
+            {/* <StudentList/> */}
+            <div>
+              <p
+                class="text-4xl font-black text-gray-900 dark:text-gray-900"
+                className="Title"
+              >
+                Courses
+              </p>
+              <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                      <th scope="col" class="px-6 py-3">
+                        Course
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        Total Seat
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        No. of Assigned Students
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        Remaining Seats
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {courselist
+                      ? courselist.map((course, idx) => (
+                          <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <th
+                              scope="row"
+                              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                            >
+                              {course.courseProvided}
+                            </th>
+                            <td class="px-6 py-4">{course.seats}</td>
+                            <td class="px-6 py-4">
+                              {course.assignedStudents.length}
+                            </td>
+                            <td class="px-6 py-4">
+                              {course.seats - course.assignedStudents.length}
+                            </td>
+                            <td class="px-6 py-4">
+                              {course.assignedStudents.length > 0 && (
+                                <button
+                                  type="button"
+                                  class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                  onClick={() => {
+                                    navigate(
+                                      `institute/dashboard/${course._id}`
+                                    );
+                                  }}
+                                >
+                                  Show Students
+                                </button>
+                              )}
+                              {course.assignedStudents.length == 0 && (
+                                <button
+                                  type="button"
+                                  class="py-2.5 cursor-not-allowed px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                  disabled
+                                >
+                                  show Students
+                                </button>
+                              )}
+                            </td>
+                          </tr>
+                        ))
+                      : null}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
+  );
+};
 
-</div> 
-}
-
-</div>
-
-    </div>
-    
-  )
-}
-
-export default Dashboard
+export default Dashboard;

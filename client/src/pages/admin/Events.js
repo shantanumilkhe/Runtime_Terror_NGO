@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Admin_Request = () => {
+const Events = () => {
   const [institute, setInstitute] = useState(null);
   useEffect(() => {
     async function getDetails() {
@@ -17,27 +17,25 @@ const Admin_Request = () => {
 
   return (
     <div>
-      <p class="text-4xl font-black text-gray-900 dark:text-white">
-        LOR Requests
-      </p>
+      <p class="text-4xl font-black text-gray-900 dark:text-white">Events</p>
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" class="px-6 py-3">
-                Volunteer Name
+                Event Name
               </th>
               <th scope="col" class="px-6 py-3">
-                Volunteer Institute
+                Event Duration
               </th>
               <th scope="col" class="px-6 py-3">
-                Action - Yes/No
+                Event Field
               </th>
               {/* <th scope="col" class="px-6 py-3">
                 Available Seats
               </th> */}
               <th scope="col" class="px-6 py-3">
-                Generate Certificate
+                Total seats
               </th>
             </tr>
           </thead>
@@ -65,4 +63,4 @@ const Admin_Request = () => {
   );
 };
 
-export default Admin_Request;
+export default Events;

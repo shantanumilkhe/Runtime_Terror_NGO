@@ -31,12 +31,12 @@ Colors:
 
 body,
 p {
-  color: #6b747b;
+  color: #383b3d;
   font: 400 1rem/1.625rem "Open Sans", sans-serif;
 }
 
 h1 {
-  color: #252c38;
+  color: #ffffff;
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 3.125rem;
@@ -144,9 +144,9 @@ h6 {
 }
 
 .btn-solid-lg:hover {
-  border: 1px solid #594cda;
+  border: 1px solid #080524;
   background-color: transparent;
-  color: #594cda; /* needs to stay here because of the color property of a tag */
+  color: #797a8d; /* needs to stay here because of the color property of a tag */
   text-decoration: none;
 }
 
@@ -162,12 +162,12 @@ h6 {
 }
 
 .btn-solid-lg.secondary {
-  border: 1px solid #eb427e;
-  background-color: #eb427e;
+  border: 1px solid #f3f0f1;
+  background-color: #000755de;
 }
 
 .btn-solid-lg.secondary:hover {
-  border: 1px solid #eb427e;
+  border: 1px solid #beafb4;
   background: transparent;
   color: #eb427e; /* needs to stay here because of the color property of a tag */
 }
@@ -573,7 +573,7 @@ input[type="checkbox"] {
 /*    Header     */
 /*****************/
 .header {
-  background: linear-gradient(rgba(197, 234, 249, 1), rgba(255, 255, 255, 1));
+  background: linear-gradient(rgb(13, 105, 141), rgb(1, 17, 68));
 }
 
 /********************/
@@ -583,6 +583,7 @@ input[type="checkbox"] {
   padding-top: 4rem;
   padding-bottom: 1.5rem;
   text-align: center;
+  background: linear-gradient(rgb(1, 17, 68), rgb(13, 105, 141));
 }
 
 .cards-1 .card {
@@ -877,7 +878,7 @@ input[type="checkbox"] {
 .footer {
   padding-top: 6rem;
   padding-bottom: 3rem;
-  background: linear-gradient(rgba(255, 255, 255, 1), rgba(197, 234, 249, 1));
+  background: linear-gradient(rgb(13, 105, 141), rgb(1, 43, 68));
   text-align: center;
 }
 
