@@ -1,30 +1,47 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 // import './Register.css'
 const Register = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [location, setLocation] = useState("");
   const handleClick = async (e) => {
     e.preventDefault();
-    const res = await fetch("/instiauth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    console.log(name);
+    console.log(email);
+    console.log(password);
+    console.log(location);
+
+    await axios
+      .post("http://localhost:5000/instiauth/register", {
         name,
         email,
         password,
-      }),
-    });
-    const data = res.json();
-    if (res.status === 400 || !data) {
-      window.alert("Invalid Credentials");
-    } else {
-      navigate("/instituteauth");
-    }
+        location,
+      })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+    //     const res=await fetch("/instiauth/register",{
+    //         method:"POST",
+    //         headers:{
+    //             "Content-Type":"application/json"
+    //         },
+    //         body:JSON.stringify({
+    //             name,email,password,location
+    //         })
+    //     });
+    //     const data=res.json();
+    //     if(res.status===201 ){
+    //       navigate("/instituteauth");
+    //     }else{
+
+    //         window.alert("Invalid Credentials");
+    //     }
+
+    // }
   };
   return (
     <div className="institute-register">
@@ -67,6 +84,26 @@ const Register = () => {
             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Email
+          </label>
+        </div>
+        <div class="relative z-0 w-full mb-6 group">
+          <input
+            type="text"
+            name="floating_email"
+            id="floating_email"
+            value={location}
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+            required
+            onChange={(e) => {
+              setLocation(e.target.value);
+            }}
+          />
+          <label
+            for="floating_email"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >
+            Location
           </label>
         </div>
         <div class="relative z-0 w-full mb-6 group">
