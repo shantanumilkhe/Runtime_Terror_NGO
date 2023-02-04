@@ -37,8 +37,12 @@ db.once("open", () => {
 
 require('./config/passjwt');
 
-app.use('/volunteer',volunteerAuth);
-app.use('/institute',instituteAuth);
+app.use('/volauth',volunteerAuth);
+app.use('/instiauth',instituteAuth);
+app.use('/vol',require('./router/volunteer'));
+app.use('/insti',require('./router/institute'));
+app.use('/admin',require('./router/admin'));
+
 
 app.listen(port, ()=>{
     console.log("Server started! at "+port);
