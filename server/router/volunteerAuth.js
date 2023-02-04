@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const passport = require('passport');
-const Volunteer = require('../model/volunteerSchema');
+let Volunt = require('../model/volunteerSchema');
 require('../config/passjwt');
 
 router.get('/authenticate', passport.authenticate('jwt', { session: false }), async (req, res) => {
@@ -17,19 +17,20 @@ router.get('/authenticate', passport.authenticate('jwt', { session: false }), as
 
 router.post('/register', async (req, res) => {
     try {
-        const { name, email, phone, password, location,insitute,currentCourse,grade } = req.body;
+        
+        const { name, email, phone, password, location,institute,currentCourse,grade } = req.body;
 
-        if (!name || !email || !phone || !password || !location || !insitute || !currentCourse ||!grade) {
+        if (!name || !email || !phone || !password || !location || !institute || !currentCourse ||!grade) {
             return res.status(422).send({ message: "Please fill properly" })
         }
-        const VolunteerExist = await Volunteer.findOne({ email: email })
+        const VolunteerExist = await Volunt.findOne({ email: email })
 
         if (VolunteerExist) {
             return res.status(422).send({ message: "Account already Exists" })
         }
 
-        const Volunteer = new Volunteer({ name, email, phone, password, location,insitute,currentCourse,grade });
-        const saveVolunteer = await Volunteer.save()
+        const Volunteer = new Volunt({ name, email, phone, password, location,institute,currentCourse,grade });
+        const saveVolunteer = Volunteer.save()
 
         if (saveVolunteer) {
             res.status(201).send({ message: "Registeration Successful! Please Login Now" })
@@ -50,7 +51,7 @@ router.post('/login', async (req, res) => {
         if (!email || !password) {
             return res.status(422).send({ message: "Please fill the data" });
         }
-        const VolunteerExist = await Volunteer.findOne({ email: email });
+        const VolunteerExist = await Volunt.findOne({ email: email });
 
         if (!VolunteerExist) {
             return res.status(500).send({ message: "Invalid Info" });
