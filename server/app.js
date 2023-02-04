@@ -42,12 +42,14 @@ const volunteer = require('./router/volunteer');
 const institute = require('./router/institute');
 const admin = require('./router/admin');
 const certificate = require('./router/certificate');
+const LORS = require('./router/lor');
 app.use('/volauth',volunteerAuth);
 app.use('/instiauth',instituteAuth);
 app.use('/vol',volunteer);
 app.use('/insti',institute);
 app.use('/admin',admin);
 app.use('/certi',certificate);
+app.use('/lor',LORS);
 
 
 app.listen(port, ()=>{
