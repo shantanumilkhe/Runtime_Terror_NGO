@@ -3,7 +3,6 @@ import React from 'react'
 const login = () => {
   return (
     <div className='admin-login'>
-
 <form>
   <div class="mb-6">
     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
