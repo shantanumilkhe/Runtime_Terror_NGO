@@ -34,7 +34,9 @@ router.post('/uploadxlsx',passport.authenticate('jwt', { session: false }),uploa
            G:'course'
         }
     });
-    const vol = await Volunteer.findOne({_id:req.user._id});
+    console.log(req.user.id);
+    const vol = await Volunteer.findOne({_id:req.user.id});
+    console.log(vol);
     for(var i=0;i<result.data.length;i++){
         const exist = await student.findOne({phone:result.data[i].phone});
         if(!exist){
