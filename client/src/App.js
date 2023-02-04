@@ -3,7 +3,7 @@ import "./App.css";
 import React from "react";
 import Homepage from "./pages/homepage/homepage";
 import { Routes, Route } from "react-router-dom";
-import AdminLogin from "./pages/admin/Login";
+import AdminLogin from "./pages/admin/login";
 // import Upload from "./pages/institute/Upload";
 import AdminDashboard from "./pages/admin/Dashboard";
 import VolunteerRegistration from "./pages/volunteer/Register";
