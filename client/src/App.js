@@ -4,9 +4,10 @@ import React from "react";
 import Homepage from "./pages/homepage/homepage";
 import { Routes, Route } from "react-router-dom";
 import AdminLogin from "./pages/admin/Login";
-import Upload from "./pages/institute/Upload";
+// import Upload from "./pages/institute/Upload";
 import AdminDashboard from "./pages/admin/Dashboard";
 import InstituteDashboard from "./pages/institute/Dashboard";
+import Dashboard from "./pages/institute/Dashboard";
 // import AdminLogin from "./pages/admin/login";
 // import "swiper/css";
 // import "swiper/css/pagination";
@@ -24,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/adminauth" element={<AdminLogin />} />
-        <Route path="/institute/upload" element={<Upload />} />
+        <Route path="/institute/Dashboard" element={<Dashboard />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
     </div>
