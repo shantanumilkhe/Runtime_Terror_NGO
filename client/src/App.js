@@ -43,7 +43,7 @@ function App() {
           element={<VolunteerUpload />}
         />
         <Route path="/volunteer" element={<Volunteer />} />
-        <Route path="/institute/studentlist/:id" element={<StudentList />} />
+        <Route path="/institute/dashboard/:id" element={<StudentList />} />
         <Route path="/institute/register" element={<InstituteRegister />} />
         <Route path="/volunteer/Dashboard" element={<VolunteerDashboard />} />
         <Route path="/institute/Dashboard" element={<InstituteDashboard />} />

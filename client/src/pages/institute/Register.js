@@ -22,7 +22,11 @@ const Register = () => {
         password,
         location,
       })
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        console.log(res.data)
+        navigate("/instituteauth")
+
+      })
       .catch((err) => console.log(err));
   };
   return (
