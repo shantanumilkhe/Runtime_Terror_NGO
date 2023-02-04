@@ -20,11 +20,11 @@ const instituteSchema = new mongoose.Schema({
         type:String,
         require:true,
     },
-    courses:{
+    courses:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'seats',
         require: true
-    },
+    }],
    
 });
 
