@@ -44,6 +44,7 @@ const admin = require('./router/admin');
 const certificate = require('./router/certificate');
 const LORS = require('./router/lor');
 const request = require('./router/requests');
+const event = require('./router/events');
 app.use('/volauth',volunteerAuth);
 app.use('/instiauth',instituteAuth);
 app.use('/vol',volunteer);
@@ -52,6 +53,7 @@ app.use('/admin',admin);
 app.use('/certi',certificate);
 app.use('/lor',LORS);
 app.use('/request',request);
+app.use('/event',event);
 
 
 app.listen(port, ()=>{
