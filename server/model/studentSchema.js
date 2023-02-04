@@ -3,12 +3,12 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 
-const volunteerSchema = new mongoose.Schema({
-    name: {
-        type: String,
+const studentSchema = new mongoose.Schema({
+    uid:{
+        type: Number,
         require: true
     },
-    email: {
+    name: {
         type: String,
         require: true
     },
@@ -25,22 +25,18 @@ const volunteerSchema = new mongoose.Schema({
         require:true,
    }
    ,
-   institute:{
-        type:String,
-        require:true,
-   }, 
-   currentCourse:{
+   currentClass:{
         type:String,
         require:true,
    },
-   grade:{
+   boardGrade:{
         type:Number,
         require:true,
    }, 
-   assignedStudents:[{
+   assignedVolunteer:{
     type: Schema.Types.ObjectId,
-     ref: 'Students',
-   }],
+     ref: 'Volunteer',
+   },
 });
 
 volunteerSchema.pre('save', async function (next) {
