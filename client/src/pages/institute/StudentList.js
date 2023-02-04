@@ -1,12 +1,20 @@
 import React from 'react'
 import axios from 'axios'
 import {useState} from 'react'
+import {useParams} from 'react-router-dom'
 const StudentList = () => {
     const token=localStorage.getItem('token')
     console.log(token)
+    const {id}=useParams();
     const [studentList,setStudentList]=useState(null);
     const fetchStudentList=async()=>{
         
+        axios.get('http://localhost:5000/insti/getstudentsassigned/'+id).then((res)=>{
+            console.log(res.data)
+            setStudentList(res.data)
+        }).catch((err)=>{
+            console.log(err)
+        })
     }
   return (
     <div >
