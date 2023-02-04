@@ -47,7 +47,7 @@ router.post('/updateseats/:id', passport.authenticate('jwt', { session: false })
 router.get('/getstudentsassigned/:id', passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
         const id = req.params.id;
-        const students = await Seat.findeOne({ _id: id }).populate('assignedStudents');
+        const students = await Seat.findOne({ _id: id }).populate('assignedStudents');
         const results = JSON.stringify(students);
         if (students) {
             console.log(results)

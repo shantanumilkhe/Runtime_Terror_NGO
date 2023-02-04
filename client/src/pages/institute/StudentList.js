@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 import {useState} from 'react'
 import {useParams} from 'react-router-dom'
@@ -6,19 +6,23 @@ const StudentList = () => {
     const token=localStorage.getItem('token')
     console.log(token)
     const {id}=useParams();
+    console.log(id)
     const [studentList,setStudentList]=useState(null);
     const fetchStudentList=async()=>{
         
-        axios.get('http://localhost:5000/insti/getstudentsassigned/'+id).then((res)=>{
+        axios.get('http://localhost:5000/insti/getstudentsassigned/'+id,{headers:{'Authorization':token}}).then((res)=>{
             console.log(res.data)
-            setStudentList(res.data)
+            setStudentList(res.data.assignedStudents)
         }).catch((err)=>{
             console.log(err)
         })
     }
+    useEffect(()=>{
+        fetchStudentList();
+    },[])
   return (
-    <div >
-        <p class="text-4xl font-black text-gray-900 dark:text-gray-900">Students</p>
+    <div className='mr-5 ml-5 mt-10'>
+        <p class="text-4xl font-black text-white  mb-5">Students</p>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
