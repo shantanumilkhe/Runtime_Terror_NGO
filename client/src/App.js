@@ -14,7 +14,9 @@ import InstituteRegister from "./pages/institute/Register";
 import Volunteer_studentTrack from "./pages/volunteer/StudentTrack";
 import VolunteerUpload from "./pages/volunteer/DragnDrop";
 
+import InstituteLogin from "./pages/institute/Login";
 import Admin from "./pages/admin/Admin";
+import InstituteDashboard from "./pages/institute/Dashboard";
 
 function App() {
   return (
@@ -29,7 +31,6 @@ function App() {
         {/* <Route path="/institute/upload" element={<Upload />} /> */}
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         {/* <Route path="/institute/dashboard" element={<InstituteDashboard />} /> */}
-        <Route path="/volunteer/Dashboard" element={<VolunteerDashboard />} />
         <Route
           path="/volunteer/Dashboard/StudentTrack"
           element={<Volunteer_studentTrack />}
@@ -40,6 +41,10 @@ function App() {
           element={<VolunteerUpload />}
         />
         <Route path="/institute/register" element={<InstituteRegister />} />
+        <Route path="volunteer/Dashboard" element={<VolunteerDashboard />} />
+        <Route path="/institute/Dashboard" element={<InstituteDashboard />} />
+        <Route path="/instituteregister" element={<InstituteRegister />} />
+        <Route path="/instituteauth" element={<InstituteLogin />} />
       </Routes>
     </div>
   );

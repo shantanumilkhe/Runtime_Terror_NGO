@@ -24,24 +24,6 @@ const Register = () => {
       })
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
-    //     const res=await fetch("/instiauth/register",{
-    //         method:"POST",
-    //         headers:{
-    //             "Content-Type":"application/json"
-    //         },
-    //         body:JSON.stringify({
-    //             name,email,password,location
-    //         })
-    //     });
-    //     const data=res.json();
-    //     if(res.status===201 ){
-    //       navigate("/instituteauth");
-    //     }else{
-
-    //         window.alert("Invalid Credentials");
-    //     }
-
-    // }
   };
   return (
     <div className="institute-register">

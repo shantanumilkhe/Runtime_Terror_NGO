@@ -16,6 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 // dotenv.config({path:'./config.env'});
 const port=process.env.PORT || 5000;
 
@@ -40,11 +41,13 @@ require('./config/passjwt');
 const volunteer = require('./router/volunteer');
 const institute = require('./router/institute');
 const admin = require('./router/admin');
+const certificate = require('./router/certificate');
 app.use('/volauth',volunteerAuth);
 app.use('/instiauth',instituteAuth);
 app.use('/vol',volunteer);
 app.use('/insti',institute);
 app.use('/admin',admin);
+app.use('/certi',certificate);
 
 
 app.listen(port, ()=>{

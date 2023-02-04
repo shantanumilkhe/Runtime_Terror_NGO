@@ -22,7 +22,7 @@ const instituteSchema = new mongoose.Schema({
     },
     courses:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'seats',
+        ref: 'Seat',
         require: true
     }],
    

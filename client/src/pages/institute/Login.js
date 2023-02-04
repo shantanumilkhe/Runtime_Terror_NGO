@@ -4,27 +4,27 @@ import axios from "axios";
 import './login.css'
 function Login() {
     const navigate = useNavigate();
-
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const handleClick= async(e)=>{
         e.preventDefault();
         console.log(email,password);
-        axios.post("http://localhost:5000/institute/login",{
+        axios.post("http://localhost:5000/instiauth/login",{
             email:email,
             password:password
         }).then((res)=>{
             console.log(res.data);
             if(res.data.success){
                 localStorage.setItem("token",res.data.token);
-                navigate("/volunteer/dashboard");
+                navigate("/institute/dashboard");
             }
         }
         ).catch((err)=>{
+
             console.log(err);
         }
         )
-        
+
 
     }
   return (
