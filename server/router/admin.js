@@ -69,7 +69,7 @@ router.get('/assigned', async (req, res) => {
 
 router.get('/getallcourses', async (req, res) => {
     try{
-        const list = await Seat.find();
+        const list = await Seat.find().populate({path:'instituteId',model:Institute});
         const result = JSON.stringify(list);
         console.log(result[0]);
         res.send(result);
@@ -80,6 +80,7 @@ router.get('/getallcourses', async (req, res) => {
 
 router.get('/assignstudent/:id', async (req, res) => {
     try {
+        console.log(req.params.id)
         const course = await Seat.findOne({ institute: req.params.id })
         // const Insti = await Institute.findOne({ _id: course.InstituteId });
         const Students = await Student.find({assignedInstitute: null, course: course.courseProvided});

@@ -5,11 +5,13 @@ const Admin_Institute = () => {
   const [institute,setInstitute] = useState(null);
   useEffect(() => {
     async function getDetails(){
-      await axios.get('http://localhost:5000/admin/getallinstitutes').then(res=>{setInstitute(res.data)}).catch(err=>console.log(err));
+      await axios.get('http://localhost:5000/admin/getallcourses').then(res=>{console.log(res.data);setInstitute(res.data)}).catch(err=>console.log(err));
     }
     getDetails();
   }, [])
-  
+  const submitInfo = async(id)=>{
+    await axios.get('http://localhost:5000/admin/assignstudent/'+id).then((res)=>{window.location.reload()});
+  }
 
   return (
     <div>
@@ -28,7 +30,7 @@ const Admin_Institute = () => {
                 Institute Course
               </th>
               <th scope="col" class="px-6 py-3">
-                Available Seats
+                Assigned Students
               </th>
               <th scope="col" class="px-6 py-3">
                 Action
@@ -40,19 +42,21 @@ const Admin_Institute = () => {
               
               <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
               <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {insti.name}
+                {insti.instituteId.name}
               </th>
               <td class="px-6 py-4">
-                {insti.location}
+                {insti.instituteId.location}
               </td>
               <td class="px-6 py-4">
-              {insti.location}
+              {insti.courseProvided}
               </td>
               <td class="px-6 py-4">
-              {insti.location}
+              {insti.assignedStudents.length}/{insti.seats}
               </td>
               <td class="px-6 py-4">
-              {insti.location}
+              <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={()=>{
+                submitInfo(insti._id)
+              }}>Assign</button>
               </td>
             </tr>
             ):null}
