@@ -51,6 +51,8 @@ router.get('/unassigned', async (req, res) => {
     }
 })
 
-router.get('/assign')
+router.get('/assignstudent', async (req, res) => {
+    
+})
 
 module.exports = router;
