@@ -17,9 +17,9 @@ router.get('/authenticate', passport.authenticate('jwt', { session: false }), as
 
 router.post('/register', async (req, res) => {
     try {
-        const { name, email,password} = req.body;
+        const { name, email,password, location} = req.body;
 
-        if (!name || !email || !password) {
+        if (!name || !email || !password || !location) {
             return res.status(422).send({ message: "Please fill properly" })
         }
         const InstituteExist = await Institute.findOne({ email: email })
@@ -28,8 +28,8 @@ router.post('/register', async (req, res) => {
             return res.status(422).send({ message: "Account already Exists" })
         }
 
-        const Institute = new Institute({name, email,password});
-        const saveInstitute = await Institute.save()
+        const Instituted = new Institute({name, email,password, location});
+        const saveInstitute = await Instituted.save()
 
         if (saveInstitute) {
             res.status(201).send({ message: "Registeration Successful! Please Login Now" })

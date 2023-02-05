@@ -13,7 +13,7 @@ const volunteerSchema = new mongoose.Schema({
         require: true
     },
     phone: {
-        type: Number,
+        type: String,
         require: true
     },
     password: {
@@ -23,24 +23,35 @@ const volunteerSchema = new mongoose.Schema({
    location:{
         type:String,
         require:true,
-   }
-   ,
+   },
    institute:{
         type:String,
         require:true,
    }, 
-   currentCourse:{
-        type:String,
-        require:true,
+   approval:{
+        type:Boolean,
+        default:true
    },
-   grade:{
-        type:Number,
-        require:true,
-   }, 
-   assignedStudents:[{
-    type: Schema.Types.ObjectId,
-     ref: 'Student',
+   studentsProvided:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Student',
    }],
+   certificate:{
+        type:String,
+        default:null
+   },
+   lor:{
+        type:String,
+        default:null
+   },
+   hours:{
+        type:Number,
+        default:0
+   },
+   workDone:[{
+    type:String,
+    default:null
+    }]
 });
 
 volunteerSchema.pre('save', async function (next) {
@@ -61,6 +72,6 @@ volunteerSchema.methods.generateAuthToken = async function () {
     }
 }
 
-const Volunteer = mongoose.model('Student', volunteerSchema);
+const Volunteer = mongoose.model('Volunteer', volunteerSchema);
 
 module.exports = Volunteer;

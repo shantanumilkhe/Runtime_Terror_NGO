@@ -16,10 +16,6 @@ const studentSchema = new mongoose.Schema({
         type: Number,
         require: true
     },
-    password: {
-        type: String,
-        require: true
-    },
    location:{
         type:String,
         require:true,
@@ -33,29 +29,16 @@ const studentSchema = new mongoose.Schema({
         type:Number,
         require:true,
    }, 
-   assignedVolunteer:{
-    type: Schema.Types.ObjectId,
-     ref: 'Volunteer',
+   assignedInstitute:{
+    type: mongoose.Schema.Types.ObjectId,
+     ref: 'Institute',
    },
+   course:{
+        type:String,
+        require:true,
+   }
 });
 
-studentSchema.pre('save', async function (next) {
-    if (this.isModified('password')) {
-        this.password = bcrypt.hashSync(this.password, 12);
-    }
-    next();
-});
-
-studentSchema.methods.generateAuthToken = async function () {
-    try {
-        let token= jwt.sign({ _id: this._id }, process.env.SECRET_KEY);
-        this.tokens = this.tokens.concat({token:token});
-        await this.save();
-        return token;
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 const Student = mongoose.model('Student', studentSchema);
 
