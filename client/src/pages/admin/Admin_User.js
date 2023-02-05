@@ -27,7 +27,7 @@ const Admin_User = () => {
                 Location
               </th>
               <th scope="col" class="px-6 py-3">
-                Assigned Insititute
+                Course
               </th>
             </tr>
           </thead>
@@ -42,7 +42,7 @@ const Admin_User = () => {
               <td class="px-6 py-4">
               {student.location}
               </td>
-              {student.assignedInstitute==null?<td class="px-6 py-4">-</td>:<td class="px-6 py-4">{student.assignedInstitute}</td>}
+              <td class="px-6 py-4">{student.course}</td>
               
             </tr>):null}
 
