@@ -7,9 +7,10 @@ router.post('/createEvent', async (req, res) => {
     try{
         console.log(req.body)
         const {name, date, time, venue, description,volunteersRequired } = req.body;
+        
         const newEvent = new event();
         newEvent.name = name;
-        newEvent.date = date;
+        newEvent.expireAt = date;
         newEvent.timeRequired = time;
         newEvent.venue = venue;
         newEvent.description = description;
