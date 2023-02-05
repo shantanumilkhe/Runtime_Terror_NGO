@@ -49,8 +49,7 @@ const Admin_Volunteer = () => {
                       {insti.name}
                     </th>
                     <td class="px-6 py-4">{insti.institute}</td>
-                    {/* <td class="px-6 py-4">{insti.assignedInstitute.length}</td> */}
-                    {console.log(insti)}
+                    <td class="px-6 py-4">{insti.assignedInstitute.length}</td>
                     <td class="px-6 py-4">Hi</td>
                   </tr>
                 ))
