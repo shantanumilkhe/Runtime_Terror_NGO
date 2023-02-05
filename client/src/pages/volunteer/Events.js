@@ -2,30 +2,37 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 const Events = () => {
 const [eventList,setEventList]=useState(null)
-const token = localStorage.getItem("token");
-console.log(token);
-const fetchEvents=async()=>{
-axios('http://localhost:5000/event/getallevents',{
-  headers:{
-    Authorization:token}
-  }).then((res)=>{
-    console.log(res.data)
-    setEventList(res.data)
+// const token = localStorage.getItem("token");
+// console.log(token);
 
-  }).catch((err)=>console.log(err))
-      
-}
 const handleClick=async(id)=>{
- 
-  axios.post('http://localhost:5000/vol/participate/'+id,{headers:{'Authorization':token}}).then((res)=>{
+  const token = localStorage.getItem("token");
+  await fetch(`http://localhost:5000/vol/participate/`+id,{method:'POST',headers:{'Authorization':token}}).then((res)=>{
     console.log('participated')
   }).catch((err)=>{
 console.log(err)
   })
+//   axios.post('http://localhost:5000/vol/participate/'+id,{headers:{'Authorization':token}}).then((res)=>{
+//     console.log('participated')
+//   }).catch((err)=>{
+// console.log(err)
+//   })
 }
 useEffect(()=>{
+  async function fetchEvents(){
+    const token = localStorage.getItem("token");
+    await axios('http://localhost:5000/event/getallevents',{
+      headers:{
+        Authorization:token}
+      }).then((res)=>{
+        console.log(res.data)
+        setEventList(res.data)
+    
+      }).catch((err)=>console.log(err))
+          
+    }
   fetchEvents()
-})
+},[])
   return (
     <div className='mr-5 ml-5 mt-10'>
         <p class="text-4xl font-black text-white  mb-5">Events</p>
