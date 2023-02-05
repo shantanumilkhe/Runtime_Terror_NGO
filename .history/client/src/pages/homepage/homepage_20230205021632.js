@@ -5,14 +5,14 @@ import "./styles.css";
 
 function homepage() {
   return (
-    <div className="bg-gray-700">
+    <div>
       <nav className="navbar fixed-top">
         <div className="container sm:px-4 lg:px-8 flex flex-wrap items-center justify-between lg:flex-nowrap">
           <a
             className="inline-block mr-4 py-0.5 text-xl whitespace-nowrap hover:no-underline focus:no-underline"
             href="index.html"
           >
-            <h5 className="text-white">Education.IO</h5>
+            <h5>Education.IO</h5>
             {/* <img src="images/logo.svg" alt="alternative" className="h-8" /> */}
           </a>
 
@@ -25,13 +25,13 @@ function homepage() {
           </button>
 
           <div
-            className="navbar-collapse offcanvas-collapse lg:flex lg:flex-grow lg:items-center "
+            className="navbar-collapse offcanvas-collapse lg:flex lg:flex-grow lg:items-center"
             id="navbarsExampleDefault"
           >
-            <ul className=" pl-0 mt-3 mb-2 ml-auto flex flex-col list-none lg:mt-0 lg:mb-0 lg:flex-row">
+            <ul className="pl-0 mt-3 mb-2 ml-auto flex flex-col list-none lg:mt-0 lg:mb-0 lg:flex-row">
               <li>
                 <a className="nav-link page-scroll active" href="#header">
-                  Home <span className="sr-only text-white">(current)</span>
+                  Home <span className="sr-only">(current)</span>
                 </a>
               </li>
               <li>
@@ -40,18 +40,13 @@ function homepage() {
                 </a>
               </li>
               <li>
-                <a className="nav-link page-scroll" href="/volunteerauth">
+                <a className="nav-link page-scroll" href="#details">
                   Volunteer
                 </a>
               </li>
               <li>
-                <a className="nav-link page-scroll" href="/instituteauth">
+                <a className="nav-link page-scroll" href="#pricing">
                   Institute
-                </a>
-              </li>
-              <li>
-                <a className="nav-link page-scroll" href="/adminauth">
-                  Admin
                 </a>
               </li>
               <li className="dropdown">
@@ -89,18 +84,17 @@ function homepage() {
         className="header text-center md:pt-36 lg:text-left xl:pt-44 xl:pb-32"
       >
         <div className="container px-4 sm:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
-          <div className="mb-16 lg:mt-32 xl:mt-1 xl:mr-12">
+          <div className="mb-16 lg:mt-32 xl:mt-20 xl:mr-12">
             <h1 className="h1-large mb-5">
               Education for everyone available everywhere
             </h1>
-            <p className="p-large mb-8 text-white">
-              Non-profit organization that provides free education to everyone.
-              Register with us...
+            <p className="p-large mb-8">
+              Non-profit organization that provides free education to everyone
             </p>
-            <a className="btn-solid-lg" href="/volunteer/Register">
-              <i className="fab fa-google-play"></i>Volunteer
+            <a className="btn-solid-lg" href="#your-link">
+              <i className="fab fa-apple"></i>Volunteer
             </a>
-            <a className="btn-solid-lg secondary" href="/instituteregister">
+            <a className="btn-solid-lg secondary" href="#your-link">
               <i className="fab fa-google-play"></i>Institute
             </a>
           </div>
@@ -109,11 +103,16 @@ function homepage() {
               className="inline"
               src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201611/underprivileged-children-647_111616054051.jpg?VersionId=zoABG8Jv7J967Mmyb37Dwq1GvgwqFkMH"
               alt="StudentImage"
-              style={{ borderRadius: "7%", boxShadow: "0 0 10px 0 " }}
             />
           </div>
         </div>
       </header>
+
+      {/* <!-- Introduction --> */}
+      <div className="pt-4 pb-14 text-center">
+        <div className="container px-4 sm:px-8 xl:px-4"></div>
+      </div>
+      {/* <!-- end of introduction --> */}
 
       <div id="features" className="cards-1">
         <div className="container px-4 sm:px-8 xl:px-4">
@@ -261,6 +260,43 @@ function homepage() {
             >
               Back
             </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="counter">
+        <div className="container px-4 sm:px-8">
+          <div id="counter">
+            <div className="cell">
+              <div className="counter-value number-count" data-count="231">
+                1
+              </div>
+              <p className="counter-info">Happy Users</p>
+            </div>
+            <div className="cell">
+              <div className="counter-value number-count" data-count="385">
+                1
+              </div>
+              <p className="counter-info">Issues Solved</p>
+            </div>
+            <div className="cell">
+              <div className="counter-value number-count" data-count="159">
+                1
+              </div>
+              <p className="counter-info">Good Reviews</p>
+            </div>
+            <div className="cell">
+              <div className="counter-value number-count" data-count="127">
+                1
+              </div>
+              <p className="counter-info">Case Studies</p>
+            </div>
+            <div className="cell">
+              <div className="counter-value number-count" data-count="211">
+                1
+              </div>
+              <p className="counter-info">Orders Received</p>
+            </div>
           </div>
         </div>
       </div>

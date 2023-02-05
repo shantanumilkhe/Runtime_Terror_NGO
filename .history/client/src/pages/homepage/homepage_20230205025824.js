@@ -40,18 +40,13 @@ function homepage() {
                 </a>
               </li>
               <li>
-                <a className="nav-link page-scroll" href="/volunteerauth">
+                <a className="nav-link page-scroll" href="/volunteer/Register">
                   Volunteer
                 </a>
               </li>
               <li>
                 <a className="nav-link page-scroll" href="/instituteauth">
                   Institute
-                </a>
-              </li>
-              <li>
-                <a className="nav-link page-scroll" href="/adminauth">
-                  Admin
                 </a>
               </li>
               <li className="dropdown">

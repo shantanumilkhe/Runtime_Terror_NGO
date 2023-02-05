@@ -49,11 +49,6 @@ function homepage() {
                   Institute
                 </a>
               </li>
-              <li>
-                <a className="nav-link page-scroll" href="/adminauth">
-                  Admin
-                </a>
-              </li>
               <li className="dropdown">
                 <div className="dropdown-menu" aria-labelledby="dropdown01">
                   <a className="dropdown-item page-scroll" href="article.html">
@@ -94,13 +89,12 @@ function homepage() {
               Education for everyone available everywhere
             </h1>
             <p className="p-large mb-8 text-white">
-              Non-profit organization that provides free education to everyone.
-              Register with us...
+              Non-profit organization that provides free education to everyone
             </p>
-            <a className="btn-solid-lg" href="/volunteer/Register">
+            <a className="btn-solid-lg" href="/volunteerauth">
               <i className="fab fa-google-play"></i>Volunteer
             </a>
-            <a className="btn-solid-lg secondary" href="/instituteregister">
+            <a className="btn-solid-lg secondary" href="/instituteauth">
               <i className="fab fa-google-play"></i>Institute
             </a>
           </div>

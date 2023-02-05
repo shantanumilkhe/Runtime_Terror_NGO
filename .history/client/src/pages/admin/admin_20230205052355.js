@@ -154,12 +154,7 @@ const Admin = () => {
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span
-                  class="flex-1 ml-3 whitespace-nowrap"
-                  onClick={() => setNumber(4)}
-                >
-                  <a href="/admin/create-event">Add Events</a>
-                </span>
+                <span class="flex-1 ml-3 whitespace-nowrap">Add Events</span>
               </div>
             </li>
           </ul>
