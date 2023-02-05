@@ -23,11 +23,9 @@ const Admin_Volunteer = () => {
                 Volunteer Institute
               </th>
               <th scope="col" class="px-6 py-3">
-                Volunteer Students
+                Work Hours
               </th>
-              <th scope="col" class="px-6 py-3">
-                Price
-              </th>
+    
             </tr>
           </thead>
           <tbody>
@@ -40,11 +38,11 @@ const Admin_Volunteer = () => {
               <td class="px-6 py-4">
                 {insti.institute}
               </td>
-              <td class="px-6 py-4">
+              {/* <td class="px-6 py-4">
               {insti.assignedStudents.length}
-              </td>
+              </td> */}
               <td class="px-6 py-4">
-              Hi
+              {insti.hours}
               </td>
             </tr>
             ):null}

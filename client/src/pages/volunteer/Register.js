@@ -15,7 +15,9 @@ const Register = () => {
     await axios.post("http://localhost:5000/volauth/register", {
       name, email, phone, password, location,institute
     })
-    .then((res) => console.log(res.data))
+    .then((res) =>{console.log(res.data)
+      navigate("/volunteerauth");
+    } )
     .catch((err) => console.log(err));
   }
   //   const res = await fetch("/instiauth/register", {

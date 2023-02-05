@@ -77,10 +77,10 @@ const Volunteer = () => {
                       clip-rule="evenodd"
                     ></path>
                   </svg>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Dashboard</span>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Make Request</span>
                 </div>
               </li>
-              <li>
+              {/* <li>
                 <div
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                   onClick={() => setNumber(2)}
@@ -100,7 +100,7 @@ const Volunteer = () => {
                   </svg>
                   <span class="flex-1 ml-3 whitespace-nowrap">Student Track</span>
                 </div>
-              </li>
+              </li> */}
               <li>
                 <div
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"

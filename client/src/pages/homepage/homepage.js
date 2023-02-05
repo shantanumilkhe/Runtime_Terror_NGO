@@ -55,14 +55,7 @@ function homepage() {
                 </a>
               </li>
             </ul>
-            <span className="block lg:ml-3.5">
-              <a
-                className="no-underline"
-                href="http://www.yashamfoundation.org/"
-              >
-                <i className="fab fa-apple text-indigo-600 hover:text-pink-500 text-xl transition-all duration-200 mr-1.5"></i>
-              </a>
-            </span>
+           
           </div>
         </div>
       </nav>
@@ -105,7 +98,7 @@ function homepage() {
           <div className="card">
             <div className="card-image">
               <img
-                src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fvakilsearch.com%2Fblog%2Fwhat-are-the-differences-between-trust-and-ngo-registration%2F&psig=AOvVaw3W86d65QhMbItQKRxNE_MP&ust=1675645337600000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMDuybqX_fwCFQAAAAAdAAAAABAR"
+              src="assets/logo.jpg"
                 alt=""
               />
             </div>
