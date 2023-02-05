@@ -1,69 +1,37 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Events_input.css";
-
-const Events_input = () => {
-  const token = localStorage.getItem("token");
-  // console.log(token);
+// import './Register.css'
+const Register = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [time, setTime] = useState("");
-  const [volunteersRequired, setV_req] = useState("");
-  const [description, setDescription] = useState("");
-  const [date, setDate] = useState("");
-  const [venue, setVenue] = useState("");
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [location, setLocation] = useState("");
   const handleClick = async (e) => {
     e.preventDefault();
-    // console.log(name);
-  console.log(name, time,volunteersRequired,description,date,venue)
-  
+    console.log(name);
+    console.log(email);
+    console.log(password);
+    console.log(location);
 
     await axios
-      .post(
-        "http://localhost:5000/event/createEvent",
-        
-        {
-          
-            name,
-            date,
-            time,
-            venue,
-            description,
-            volunteersRequired,
-        },
-        { headers: { Authorization: token } },
-      )
-      .then((res) =>{
-        console.log(res.data)
-        navigate("/admin")
-      } )
+      .post("http://localhost:5000/instiauth/register", {
+        name,
+        email,
+        password,
+        location,
+      })
+      .then((res) => {
+        console.log(res.data);
+        navigate("/instituteauth");
+      })
       .catch((err) => console.log(err));
   };
   return (
     <div className="institute-register">
+      <h2 className="text-center">Institute Registeration</h2>
       <form>
-        <div class="relative z-0 w-full mb-6 group">
-          <input
-            type="date"
-            name="floating_email"
-            id="floating_email"
-            value={date}
-            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-            onChange={(e) => {
-              setDate(e.target.value);
-            }}
-          />
-          <label
-            for="floating_email"
-            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Date
-          </label>
-        </div>
         <div class="relative z-0 w-full mb-6 group">
           <input
             type="text"
@@ -81,7 +49,27 @@ const Events_input = () => {
             for="floating_email"
             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Event Name
+            Institue Name
+          </label>
+        </div>
+        <div class="relative z-0 w-full mb-6 group">
+          <input
+            type="email"
+            name="floating_password"
+            id="floating_password"
+            value={email}
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+            required
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <label
+            for="floating_password"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >
+            Email
           </label>
         </div>
         <div class="relative z-0 w-full mb-6 group">
@@ -89,81 +77,39 @@ const Events_input = () => {
             type="text"
             name="floating_email"
             id="floating_email"
-            value={time}
+            value={location}
             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
             onChange={(e) => {
-              setTime(e.target.value);
+              setLocation(e.target.value);
             }}
           />
           <label
             for="floating_email"
             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Event Duration
-          </label>
-          <div class="relative z-0 w-full mb-6 group">
-            <input
-              type="text"
-              name="floating_email"
-              id="floating_email"
-              value={volunteersRequired}
-              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              required
-              onChange={(e) => {
-                setV_req(e.target.value);
-              }}
-            />
-            <label
-              for="floating_email"
-              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Volunteer required
-            </label>
-          </div>
-        </div>
-
-        <div class="relative z-0 w-full mb-6 group">
-          <input
-            type="text"
-            name="floating_email"
-            id="floating_email"
-            value={venue}
-            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-            onChange={(e) => {
-              setVenue(e.target.value);
-            }}
-          />
-          <label
-            for="floating_email"
-            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Venue
+            Location
           </label>
         </div>
-
         <div class="relative z-0 w-full mb-6 group">
           <input
-            type="text"
-            name="floating_email"
-            id="floating_email"
-            value={description}
+            type="password"
+            name="repeat_password"
+            value={password}
+            id="floating_repeat_password"
             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
             onChange={(e) => {
-              setDescription(e.target.value);
+              setPassword(e.target.value);
             }}
           />
           <label
-            for="floating_email"
+            for="floating_repeat_password"
             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Event Decription
+            Password
           </label>
         </div>
 
@@ -178,4 +124,4 @@ const Events_input = () => {
   );
 };
 
-export default Events_input;
+export default Register;

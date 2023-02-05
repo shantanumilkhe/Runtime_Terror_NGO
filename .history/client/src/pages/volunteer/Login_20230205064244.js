@@ -1,39 +1,38 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./login.css";
 function Login() {
   const navigate = useNavigate();
 
-  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleClick = async (e) => {
     e.preventDefault();
-    console.log(username, password);
-    const res = await fetch("/admin/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        password,
-      }),
-    });
-    const data = res.json();
-    if (res.status === 400 || !data) {
-      window.alert("Invalid Credentials");
-    } else {
-      navigate("/admin");
-    }
+    console.log(email, password);
+    axios
+      .post("http://localhost:5000/volauth/login", {
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.success) {
+          localStorage.setItem("token", res.data.token);
+          navigate("/volunteer/dashboard");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <>
       <div className="login-container">
+        <h1 className="text-3xl font-bold text-center">VolunteerLogin</h1>
+
         <form>
           <div className="mb-6">
-            <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white">
-              Admin Login
-            </h1>
             <label
               for="email"
               class="block mb-2 text-sm font-medium text-gray-900 text-black"
@@ -45,9 +44,9 @@ function Login() {
               id="email"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 dark:text-white focus:ring-blue-500 focus:border-blue-500"
               placeholder=""
-              value={username}
+              value={email}
               onChange={(e) => {
-                setUserName(e.target.value);
+                setEmail(e.target.value);
               }}
               required
             />
