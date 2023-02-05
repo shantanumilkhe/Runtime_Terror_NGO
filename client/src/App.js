@@ -5,6 +5,7 @@ import Homepage from "./pages/homepage/homepage";
 import { Routes, Route } from "react-router-dom";
 import AdminLogin from "./pages/admin/Login";
 // import Upload from "./pages/institute/Upload";
+// import Footer from "./components/footer/Footer";
 import AdminDashboard from "./pages/admin/Dashboard";
 import StudentList from "./pages/institute/StudentList";
 import VolunteerRegistration from "./pages/volunteer/Register";
@@ -14,11 +15,12 @@ import VolunteerLogin from "./pages/volunteer/Login";
 import InstituteRegister from "./pages/institute/Register";
 import Volunteer_studentTrack from "./pages/volunteer/StudentTrack";
 import VolunteerUpload from "./pages/volunteer/DragnDrop";
-
 import InstituteLogin from "./pages/institute/Login";
 import Admin from "./pages/admin/Admin";
 import InstituteDashboard from "./pages/institute/Dashboard";
 import Volunteer from "./pages/volunteer/Volunteer";
+import Events_input from "./pages/admin/Events_input";
+
 function App() {
   return (
     <div className="App" width="100%">
@@ -41,14 +43,16 @@ function App() {
           path="/volunteer/dashboard/dragndrop"
           element={<VolunteerUpload />}
         />
-        <Route path='/volunteer' element={<Volunteer/>}/>
+        <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/institute/dashboard/:id" element={<StudentList />} />
         <Route path="/institute/register" element={<InstituteRegister />} />
         <Route path="/volunteer/Dashboard" element={<VolunteerDashboard />} />
         <Route path="/institute/Dashboard" element={<InstituteDashboard />} />
+        <Route path="/admin/create-event" element={<Events_input />} />
         <Route path="/instituteregister" element={<InstituteRegister />} />
         <Route path="/instituteauth" element={<InstituteLogin />} />
       </Routes>
+     
     </div>
   );
 }

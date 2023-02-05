@@ -5,7 +5,6 @@ import DragnDrop from "./DragnDrop";
 import axios from 'axios'
 
 const Dashboard = () => {
-  const [file, setFile] = useState(null);
   const [number, setNumber] = useState(1);
   const [certificate,setCertificate] = useState(null);
   const [lor,setLor] = useState(null);
