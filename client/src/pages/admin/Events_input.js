@@ -46,7 +46,7 @@ const Events_input = () => {
       <form>
         <div class="relative z-0 w-full mb-6 group">
           <input
-            type="text"
+            type="date"
             name="floating_email"
             id="floating_email"
             value={date}
