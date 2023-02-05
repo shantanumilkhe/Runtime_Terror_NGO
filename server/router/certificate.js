@@ -12,7 +12,6 @@ router.post('/generatecertificate/:id', async (req, res) => {
         const newReq = await Request.findOne();
         if(newReq.pendingCertificates.includes(id)){
         newReq.pendingCertificates.pull(id);
-        newReq.save();
         }
         newReq.approvedCertificates.push(id);
         newReq.save();
