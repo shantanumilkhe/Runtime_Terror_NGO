@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 const Volunteer = require('../model/volunteerSchema');
 const Request = require('../model/request');
 
-router.post('/requestCertificate/:id', async (req, res) => {
+router.post('/requestCertificate', passport.authenticate('jwt', { session: false }), async (req, res) => {
     try{
-        const id = req.params.id;
+        const id = req.user.id;
         const newReq = await Request.findOne();
         newReq.pendingCertificates.push(id);
         newReq.save();
@@ -18,9 +19,22 @@ router.post('/requestCertificate/:id', async (req, res) => {
 
 router.get('/getpendingcertificates', async (req, res) => {
     try{
-        const newReq = await Request.findOne();
+        const newReq = await Request.findOne().populate({path:'pendingCertificates',model:Volunteer});;
         const pendingCertificates = newReq.pendingCertificates;
         const results = JSON.stringify(pendingCertificates);
+        res.send(results);
+    }
+    catch(err){
+        console.log(err)
+    }
+});
+
+router.get('/getpendinglors', async (req, res) => {
+    try{
+        const newReq = await Request.findOne().populate({path:'pendinglor',model:Volunteer});
+        console.log(newReq)
+        const pendinglor = newReq.pendinglor;
+        const results = JSON.stringify(pendinglor);
         res.send(results);
     }
     catch(err){
@@ -55,9 +69,9 @@ router.post('/cancelrequest/:id', async (req, res) => {
     }
 });
 
-router.post('/requestlor/:id', async (req, res) => {
+router.post('/requestlor',passport.authenticate('jwt', { session: false }), async (req, res) => {
     try{
-        const id = req.params.id;
+        const id = req.user.id;
         const newReq = await Request.findOne();
         newReq.pendinglor.push(id);
         newReq.save();
