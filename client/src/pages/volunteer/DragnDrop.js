@@ -26,7 +26,63 @@ const DragnDrop=()=> {
   }
   return (
     <div>
-      <h1>Upload the excel sheet here</h1>
+       <h4 className="text-center mt-4 mb-2">Excel sheet should adhere to this format</h4>
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3">
+               uid
+              </th>
+              <th scope="col" class="px-6 py-3">
+                name
+              </th>
+              <th scope="col" class="px-6 py-3">
+                phone
+              </th>
+              <th scope="col" class="px-6 py-3">
+                location
+              </th>
+              <th scope="col" class="px-6 py-3">
+                currentClass
+              </th>
+              <th scope="col" class="px-6 py-3">
+                boardGrade
+              </th>
+              <th scope="col" class="px-6 py-3">
+               course
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+         
+              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                unique number
+              </th>
+              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                String
+              </td>
+              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+             number
+              </td>
+              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              String
+              </td>
+              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              number
+              </td>
+              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              number
+              </td>
+              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              String
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h1 className="text-center mt-4">Upload the excel sheet here</h1>
       <div class="flex items-center justify-center w-full">
         <label
           for="dropzone-file"
@@ -53,7 +109,7 @@ const DragnDrop=()=> {
               drop
             </p>
             <p class="text-xs text-gray-500 dark:text-gray-400">
-              XLSX (MAX. 800x400px)
+              XLSX 
             </p>
           </div>
           <input id="dropzone-file" type="file" class="hidden" onChange={(e) => handleFile(e)}/>
