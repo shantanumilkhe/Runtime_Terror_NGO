@@ -16,10 +16,16 @@ const Admin_certificate = () => {
         getDetails();
     }, []);
     const decline = async (id) => {
-        await axios.post('http://localhost:5000/request/declineCertificate/' + id).then(res => window.location.reload()).catch(err => console.log(err));
+        await fetch(`http://localhost:5000/request/declineCertificate/` + id, {
+            method: 'POST',
+        }).then(res => console.log(res)).catch(err => console.log(err));
+        // await axios.post('http://localhost:5000/request/declineCertificate/' + id).then(res => window.location.reload()).catch(err => console.log(err));
     }
     const accept = async (id) => {
-        await axios.post('http://localhost:5000/certi/generatecertificate/' + id).then(res => window.location.reload()).catch(err => console.log(err));
+        await fetch(`http://localhost:5000/certi/generatecertificate/` + id, {
+            method: 'POST',
+        }).then(res => console.log(res)).catch(err => console.log(err));
+        // await axios.post('http://localhost:5000/certi/generatecertificate/' + id).then(res => window.location.reload()).catch(err => console.log(err));
     }
     return (
         <div>

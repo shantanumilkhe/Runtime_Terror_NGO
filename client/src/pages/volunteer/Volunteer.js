@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import axios from 'axios';
 import Dashboard from './Dashboard';
 import DragnDrop from './DragnDrop';
@@ -6,6 +6,38 @@ import StudentTrack from './StudentTrack';
 import Events from './Events';
 const Volunteer = () => {
     const [number, setNumber] = useState(1);
+  const [certificate,setCertificate] = useState(null);
+  const [lor,setLor] = useState(null);
+  //   let navigate = useNavigate();
+  //   const routeChange = () => {
+  //     let path = `volunteer/dashboard/dragndrop`;
+  //     navigate(path);
+  //   };
+  const handleLORSubmit =async ()=>{
+    let token = localStorage.getItem('token')
+    await fetch(`http://localhost:5000/request/requestlor`,
+    {
+      method:'POST',
+      headers:{'Authorization':token}
+    }).then(res=>console.log(res)).catch(err=>console.log(err));
+  }
+  const handleCertificateSubmit =async ()=>{
+    let token = localStorage.getItem('token')
+    await fetch(`http://localhost:5000/request/requestCertificate`,
+    {
+      method:'POST',
+      headers:{'Authorization':token}
+    }).then(res=>console.log(res)).catch(err=>console.log(err));
+  }
+
+  useEffect(() => {
+    let token = localStorage.getItem('token')
+    async function getDetails(){
+      await axios.get('http://localhost:5000/vol/getcertificates',{headers:{Authorization:token}}).then(res=>console.log(res)).catch(err=>console.log(err));
+      await axios.get('http://localhost:5000/vol/getLOR',{headers:{Authorization:token}}).then(res=>console.log(res)).catch(err=>console.log(err));
+    }
+    getDetails();
+  }, [])
   return (
     <div>
         <div>
