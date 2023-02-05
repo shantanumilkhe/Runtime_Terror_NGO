@@ -30,12 +30,12 @@ function homepage() {
           >
             <ul className=" pl-0 mt-3 mb-2 ml-auto flex flex-col list-none lg:mt-0 lg:mb-0 lg:flex-row">
               <li>
-                <a className="nav-link page-scroll active" href="#header">
+                <a className="nav-link page-scroll active text-white" href="#header">
                   Home <span className="sr-only text-white">(current)</span>
                 </a>
               </li>
-              <li>
-                <a className="nav-link page-scroll" href="#features">
+              <li className="text-white">
+                <a className="nav-link page-scroll text-white" href="#features">
                   Features
                 </a>
               </li>
