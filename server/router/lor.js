@@ -38,7 +38,7 @@ function jumpLine(doc, lines) {
     }
 }
 
-router.get('/generateLOR/:id', async (req, res) => {
+router.post('/generateLOR/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const Volunt = await Volunteer.findOne({ _id: id });

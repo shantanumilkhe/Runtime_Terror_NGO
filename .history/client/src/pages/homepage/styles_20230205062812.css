@@ -599,8 +599,8 @@ input[type="checkbox"] {
 }
 
 .cards-1 .card-image img {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -916,7 +916,7 @@ input[type="checkbox"] {
 /*********************/
 .copyright {
   padding-top: 1.5rem;
-  background-color: #064862;
+  background-color: #c5eaf9;
   text-align: center;
 }
 

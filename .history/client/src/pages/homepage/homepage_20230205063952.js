@@ -12,7 +12,7 @@ function homepage() {
             className="inline-block mr-4 py-0.5 text-xl whitespace-nowrap hover:no-underline focus:no-underline"
             href="index.html"
           >
-            <h5 className="text-white">Yasham Foundation</h5>
+            <h5 className="text-white">Yasahm Foundation</h5>
             {/* <img src="images/logo.svg" alt="alternative" className="h-8" /> */}
           </a>
 

@@ -30,7 +30,7 @@ const Register = () => {
   };
   return (
     <div className="institute-register">
-      <h1 className="text-center">Register your Institute</h1>
+      <h2 className="text-center">Institute Registeration</h2>
       <form>
         <div class="relative z-0 w-full mb-6 group">
           <input
