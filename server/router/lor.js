@@ -4,6 +4,33 @@ const Volunteer = require('../model/volunteerSchema');
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const Request = require('../model/request');
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+
+function sendMail(email, name){
+    const msg = {
+        to: 'shantanu.milkhe@spit.ac.in',
+        from: 'shantanumilkhe1@gmail.com', // Use the email address or domain you verified above
+        subject: `LOR for ${name} generated`,
+        text: `dear ${name}, letter of recommendation has been generated for you.`,
+        html: ``
+      };
+
+      (async () => {
+        try {
+          await sgMail.send(msg);
+        } catch (error) {
+          console.error(error);
+      
+          if (error.response) {
+            console.error(error.response.body)
+          }
+        }
+      })();
+}
+
+
 
 function jumpLine(doc, lines) {
     for (let index = 0; index < lines; index++) {
@@ -138,6 +165,8 @@ router.get('/generateLOR/:id', async (req, res) => {
 
         Volunt.lor = `${Volunt.id}.pdf`;
         Volunt.save();
+
+        sendMail(Volunt.email, Volunt.name)
         res.send("lLOR Generated");
 
     } catch (error) {
