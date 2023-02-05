@@ -184,7 +184,7 @@ const Dashboard = () => {
             <div>
               <p
                 class="text-4xl font-black text-gray-900 dark:text-gray-900"
-                className="Title"
+                className="Title mt-2 mb-4"
               >
                 Courses
               </p>

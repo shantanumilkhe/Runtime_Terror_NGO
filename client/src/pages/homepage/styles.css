@@ -1,4 +1,4 @@
-/
+
 /*****************************************
 Table Of Contents:
 - General Styles
@@ -52,7 +52,7 @@ h2 {
 }
 
 h3 {
-  color: #252c38;
+  color: #ffffff;
   font-weight: 700;
   font-size: 1.75rem;
   line-height: 2.25rem;
@@ -60,7 +60,7 @@ h3 {
 }
 
 h4 {
-  color: #252c38;
+  color: #ffffff;
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -473,7 +473,7 @@ input[type="checkbox"] {
   display: block;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
-  color: #6b747b;
+  color: #ffffff;
   text-decoration: none;
   line-height: 0.875rem;
   transition: all 0.2s ease;
@@ -501,7 +501,7 @@ input[type="checkbox"] {
 .dropdown.show > a,
 .nav-link:hover,
 .nav-link.active {
-  color: #ff6e84;
+  color: #db3b3b;
   text-decoration: none;
 }
 

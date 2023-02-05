@@ -30,12 +30,12 @@ function homepage() {
           >
             <ul className=" pl-0 mt-3 mb-2 ml-auto flex flex-col list-none lg:mt-0 lg:mb-0 lg:flex-row">
               <li>
-                <a className="nav-link page-scroll active" href="#header">
+                <a className="nav-link page-scroll active text-white" href="#header">
                   Home <span className="sr-only text-white">(current)</span>
                 </a>
               </li>
-              <li>
-                <a className="nav-link page-scroll" href="#features">
+              <li className="text-white">
+                <a className="nav-link page-scroll text-white" href="#features">
                   Features
                 </a>
               </li>
@@ -55,14 +55,7 @@ function homepage() {
                 </a>
               </li>
             </ul>
-            <span className="block lg:ml-3.5">
-              <a
-                className="no-underline"
-                href="http://www.yashamfoundation.org/"
-              >
-                <i className="fab fa-apple text-indigo-600 hover:text-pink-500 text-xl transition-all duration-200 mr-1.5"></i>
-              </a>
-            </span>
+           
           </div>
         </div>
       </nav>
@@ -105,7 +98,7 @@ function homepage() {
           <div className="card">
             <div className="card-image">
               <img
-                src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fvakilsearch.com%2Fblog%2Fwhat-are-the-differences-between-trust-and-ngo-registration%2F&psig=AOvVaw3W86d65QhMbItQKRxNE_MP&ust=1675645337600000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMDuybqX_fwCFQAAAAAdAAAAABAR"
+              src="assets/logo.jpg"
                 alt=""
               />
             </div>

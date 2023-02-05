@@ -65,7 +65,7 @@ const doc = new PDFDocument({
     .font('./fonts/NotoSansJP-Light.otf')
     .fontSize(10)
     .fill('#021c27')
-    .text('Shantanus NGO', {
+    .text('Yasham Foundation', {
       align: 'center',
     });
   
@@ -106,7 +106,7 @@ const doc = new PDFDocument({
     .font('./fonts/NotoSansJP-Light.otf')
     .fontSize(10)
     .fill('#021c27')
-    .text('who was the biggest help around', {
+    .text('for helping the needy', {
       align: 'center',
     });
   
@@ -146,7 +146,7 @@ const doc = new PDFDocument({
     .font('./fonts/NotoSansJP-Bold.otf')
     .fontSize(10)
     .fill('#021c27')
-    .text('Red Bull', startLine1, signatureHeight + 10, {
+    .text('Perry', startLine1, signatureHeight + 10, {
       columns: 1,
       columnGap: 0,
       height: 40,
@@ -158,7 +158,7 @@ const doc = new PDFDocument({
     .font('./fonts/NotoSansJP-Light.otf')
     .fontSize(10)
     .fill('#021c27')
-    .text('Head of RedbullIndia', startLine1, signatureHeight + 25, {
+    .text('Director', startLine1, signatureHeight + 25, {
       columns: 1,
       columnGap: 0,
       height: 40,
@@ -194,7 +194,7 @@ const doc = new PDFDocument({
     .font('./fonts/NotoSansJP-Bold.otf')
     .fontSize(10)
     .fill('#021c27')
-    .text('Shantanu', startLine3, signatureHeight + 10, {
+    .text('NickFury', startLine3, signatureHeight + 10, {
       columns: 1,
       columnGap: 0,
       height: 40,
@@ -206,7 +206,7 @@ const doc = new PDFDocument({
     .font('./fonts/NotoSansJP-Light.otf')
     .fontSize(10)
     .fill('#021c27')
-    .text('Director of NGO', startLine3, signatureHeight + 25, {
+    .text('Supervisor', startLine3, signatureHeight + 25, {
       columns: 1,
       columnGap: 0,
       height: 40,

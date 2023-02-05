@@ -50,11 +50,11 @@ const Dashboard = () => {
                 Request LOR
               </div>
             </li>
-            <li class="li-mneu">
+            {/* <li class="li-mneu">
               <div class="title-menu" onClick={() => setNumber(2)}>
                 Student Track
               </div>
-            </li>
+            </li> */}
             <li class="li-mneu">
               <div class="title-menu">Upload Data</div>
             </li>
@@ -113,49 +113,6 @@ const Dashboard = () => {
       <div class="Page">
         <div class="Box-header">
           <div class="box-alert-infomation">
-            <div class="box-alert">
-              <div class="staus-box-alert"></div>
-              <svg
-                class="icon-alert"
-                xmlns="http://www.w3.org/2000/svg"
-                id="Outline"
-                viewBox="0 0 24 24"
-                width="512"
-                height="512"
-              >
-                <link
-                  xmlns=""
-                  type="text/css"
-                  rel="stylesheet"
-                  id="dark-mode-custom-link"
-                />
-                <link
-                  xmlns=""
-                  type="text/css"
-                  rel="stylesheet"
-                  id="dark-mode-general-link"
-                />
-                <style
-                  xmlns=""
-                  lang="en"
-                  type="text/css"
-                  id="dark-mode-custom-style"
-                />
-                <style
-                  xmlns=""
-                  lang="en"
-                  type="text/css"
-                  id="dark-mode-native-style"
-                />
-                <style
-                  xmlns=""
-                  lang="en"
-                  type="text/css"
-                  id="dark-mode-native-sheet"
-                />
-                <path d="M22.555,13.662l-1.9-6.836A9.321,9.321,0,0,0,2.576,7.3L1.105,13.915A5,5,0,0,0,5.986,20H7.1a5,5,0,0,0,9.8,0h.838a5,5,0,0,0,4.818-6.338ZM12,22a3,3,0,0,1-2.816-2h5.632A3,3,0,0,1,12,22Zm8.126-5.185A2.977,2.977,0,0,1,17.737,18H5.986a3,3,0,0,1-2.928-3.651l1.47-6.616a7.321,7.321,0,0,1,14.2-.372l1.9,6.836A2.977,2.977,0,0,1,20.126,16.815Z" />
-              </svg>
-            </div>
             <div class="box-infomation">
               <div class="info-name">Volunteer</div>
             </div>
@@ -169,22 +126,22 @@ const Dashboard = () => {
             <div class="title-element">Request for LOR</div>
 
             <div class="stocks-main">
-              <div class="sub-stocks">
-                <img
+              <div class="sub-stocks justify-items-center">
+                {/* <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/800px-Tesla_T_symbol.svg.png"
                   alt=""
-                />
+                /> */}
                 
                 <button
                   type="button"
-                  class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                  class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
                   onClick={handleLORSubmit}
                 >
                   Request LOR
                 </button>
                 <button
                   type="button"
-                  class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                  class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center  mb-2"
                   onClick={handleCertificateSubmit}
                 >
                   Request Certificate
@@ -195,7 +152,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div class="p-4 sm:ml-64">
-        {number == 2 ? <StudentTrack /> : number == 3 ? <DragnDrop /> : null}
+        {number == 2 ? <DragnDrop /> : null}
       </div>
     </div>
   );

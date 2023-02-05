@@ -98,7 +98,7 @@ router.post('/generateLOR/:id', async (req, res) => {
         doc.font('./fonts/NotoSansJP-Light.otf')
             .fontSize(12)
             .fill('#000000')
-            .text(`I am writing this letter to highly recommend ${Volunt.name}, a student at ${Volunt.institute}, for their volunteer work with our NGO for total of ${Volunt.hours}, an organization that provides education to underprivileged children. I have had the pleasure of working with ${Volunt.name} as their supervisor and can attest to their strong commitment to making a difference in the lives of others.`, {
+            .text(`I am writing this letter to highly recommend ${Volunt.name}, a student at ${Volunt.institute}, for their volunteer work with our NGO for total of ${Volunt.hours} hours, an organization that provides education to underprivileged children. I have had the pleasure of working with ${Volunt.name} as their supervisor and can attest to their strong commitment to making a difference in the lives of others.`, {
                 align: 'justify',
             });
 
