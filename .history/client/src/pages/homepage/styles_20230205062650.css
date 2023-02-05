@@ -144,9 +144,9 @@ h6 {
 }
 
 .btn-solid-lg:hover {
-  border: 1px solid #eb427e;
+  border: 1px solid #080524;
   background-color: transparent;
-  color: #eb427e; /* needs to stay here because of the color property of a tag */
+  color: #2325bb; /* needs to stay here because of the color property of a tag */
   text-decoration: none;
 }
 
@@ -163,11 +163,11 @@ h6 {
 
 .btn-solid-lg.secondary {
   border: 1px solid #f3f0f1;
-  background-color: transparent;
+  background-color: #000755de;
 }
 
 .btn-solid-lg.secondary:hover {
-  border: 1px solid #beafb4;
+  border: 1px solid #eb427e;
   background: transparent;
   color: #eb427e; /* needs to stay here because of the color property of a tag */
 }
@@ -599,8 +599,8 @@ input[type="checkbox"] {
 }
 
 .cards-1 .card-image img {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -916,7 +916,7 @@ input[type="checkbox"] {
 /*********************/
 .copyright {
   padding-top: 1.5rem;
-  background-color: #064862;
+  background-color: #c5eaf9;
   text-align: center;
 }
 
