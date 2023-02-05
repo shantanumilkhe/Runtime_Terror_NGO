@@ -1,6 +1,20 @@
 import React,{useState} from 'react'
+import axios from 'axios'
 const Events = () => {
 const [eventList,setEventList]=useState(null)
+const token = localStorage.getItem("token");
+// console.log(token);
+const fetchEvents=async()=>{
+axios('http://localhost:5000/event/getEvents',{
+  headers:{
+    Authorization:token}
+  }).then((res)=>{
+    console.log(res.data)
+    setEventList(res.data)
+
+  }).catch((err)=>console.log(err))
+      
+}
   return (
     <div className='mr-5 ml-5 mt-10'>
         <p class="text-4xl font-black text-white  mb-5">Events</p>
@@ -9,22 +23,23 @@ const [eventList,setEventList]=useState(null)
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" class="px-6 py-3">
-                Student UID 
+                Event
+              </th>
+             
+              <th scope="col" class="px-6 py-3">
+                Date
               </th>
               <th scope="col" class="px-6 py-3">
-               Student Name
+            Duration
               </th>
               <th scope="col" class="px-6 py-3">
-                Student Course
+        venue
               </th>
               <th scope="col" class="px-6 py-3">
-              Grade
+           VolunteerRequired
               </th>
               <th scope="col" class="px-6 py-3">
-              Class
-              </th>
-              <th scope="col" class="px-6 py-3">
-              Phone numebr
+           description
               </th>
             </tr>
           </thead>
@@ -33,10 +48,22 @@ const [eventList,setEventList]=useState(null)
               
               <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
               <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {event.uid}
+                {event.name}
               </th>
               <td class="px-6 py-4">
-                {event.name}
+                {event.date}
+              </td>
+              <td class="px-6 py-4">
+                {event.time}
+              </td>
+              <td class="px-6 py-4">
+                {event.venue}
+              </td>
+              <td class="px-6 py-4">
+                {event.volunteersRequired}
+              </td>
+              <td class="px-6 py-4">
+                {event.description}
               </td>
             </tr>
             ):null}
