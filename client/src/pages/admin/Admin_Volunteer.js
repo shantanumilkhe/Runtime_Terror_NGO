@@ -11,7 +11,7 @@ const Admin_Volunteer = () => {
   }, [])
   return (
     <div>
-        <p class="text-4xl font-black text-gray-900 dark:text-white">Volunteers</p>
+      {volunteer?<div><p class="text-4xl font-black text-gray-900 dark:text-white">Volunteers</p>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -51,7 +51,8 @@ const Admin_Volunteer = () => {
 
           </tbody>
         </table>
-      </div>
+      </div></div>:null}
+        
     </div>
   )
 }
