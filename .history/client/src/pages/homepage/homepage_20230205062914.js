@@ -12,7 +12,7 @@ function homepage() {
             className="inline-block mr-4 py-0.5 text-xl whitespace-nowrap hover:no-underline focus:no-underline"
             href="index.html"
           >
-            <h5 className="text-white">Yasham Foundation</h5>
+            <h5 className="text-white">Education.IO</h5>
             {/* <img src="images/logo.svg" alt="alternative" className="h-8" /> */}
           </a>
 
@@ -56,11 +56,11 @@ function homepage() {
               </li>
             </ul>
             <span className="block lg:ml-3.5">
-              <a
-                className="no-underline"
-                href="http://www.yashamfoundation.org/"
-              >
+              <a className="no-underline" href="#your-link">
                 <i className="fab fa-apple text-indigo-600 hover:text-pink-500 text-xl transition-all duration-200 mr-1.5"></i>
+              </a>
+              <a className="no-underline" href="#your-link">
+                <i className="fab fa-android text-indigo-600 hover:text-pink-500 text-xl transition-all duration-200"></i>
               </a>
             </span>
           </div>
@@ -104,13 +104,10 @@ function homepage() {
         <div className="container px-4 sm:px-8 xl:px-4">
           <div className="card">
             <div className="card-image">
-              <img
-                src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fvakilsearch.com%2Fblog%2Fwhat-are-the-differences-between-trust-and-ngo-registration%2F&psig=AOvVaw3W86d65QhMbItQKRxNE_MP&ust=1675645337600000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMDuybqX_fwCFQAAAAAdAAAAABAR"
-                alt=""
-              />
+              <img src="images/features-icon-1.svg" alt="alternative" />
             </div>
             <div className="card-body">
-              <h5 className="card-title">NGO Integration</h5>
+              <h5 className="card-title">Platform Integration</h5>
               <p className="mb-4">
                 You sales force can use the app on any smartphone platform
                 without compatibility issues
@@ -120,10 +117,10 @@ function homepage() {
 
           <div className="card">
             <div className="card-image">
-              <img src="images/features-icon-2.svg" alt="" />
+              <img src="images/features-icon-2.svg" alt="alternative" />
             </div>
             <div className="card-body">
-              <h5 className="card-title">NGO On Resources</h5>
+              <h5 className="card-title">Easy On Resources</h5>
               <p className="mb-4">
                 Works smoothly even on older generation hardware due to our
                 optimization efforts
@@ -133,10 +130,10 @@ function homepage() {
 
           <div className="card">
             <div className="card-image">
-              <img src="images/features-icon-3.svg" alt="" />
+              <img src="images/features-icon-3.svg" alt="alternative" />
             </div>
             <div className="card-body">
-              <h5 className="card-title">NGO Performance</h5>
+              <h5 className="card-title">Great Performance</h5>
               <p className="mb-4">
                 Optimized code and innovative technology insure no delays and
                 ultra-fast responsiveness
@@ -146,10 +143,10 @@ function homepage() {
 
           <div className="card">
             <div className="card-image">
-              <img src="images/features-icon-4.svg" alt="" />
+              <img src="images/features-icon-4.svg" alt="alternative" />
             </div>
             <div className="card-body">
-              <h5 className="card-title">NGO Hubs</h5>
+              <h5 className="card-title">Multiple Languages</h5>
               <p className="mb-4">
                 Choose from one of the 40 languages that come pre-installed and
                 start selling smarter
@@ -159,10 +156,10 @@ function homepage() {
 
           <div className="card">
             <div className="card-image">
-              <img src="images/features-icon-5.svg" alt="" />
+              <img src="images/features-icon-5.svg" alt="alternative" />
             </div>
             <div className="card-body">
-              <h5 className="card-title">NGO Updates</h5>
+              <h5 className="card-title">Free Updates</h5>
               <p className="mb-4">
                 Don't worry about future costs, pay once and receive all future
                 updates at no extra cost
@@ -172,10 +169,10 @@ function homepage() {
 
           <div className="card">
             <div className="card-image">
-              <img src="images/features-icon-6.svg" alt="" />
+              <img src="images/features-icon-6.svg" alt="alternative" />
             </div>
             <div className="card-body">
-              <h5 className="card-title">NGO Community</h5>
+              <h5 className="card-title">Community Support</h5>
               <p className="mb-4">
                 Register the app and get acces to knowledge and ideas from the
                 Pavo online community
@@ -202,7 +199,7 @@ function homepage() {
               <img
                 className="inline rounded-lg"
                 src="images/details-lightbox.jpg"
-                alt=""
+                alt="alternative"
               />
             </div>
           </div>
