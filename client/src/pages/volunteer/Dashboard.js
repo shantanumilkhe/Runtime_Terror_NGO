@@ -15,7 +15,7 @@ const Dashboard = () => {
   //   };
   const handleLORSubmit =async ()=>{
     let token = localStorage.getItem('token')
-    await fetch('http://localhost:5000/request/requestlor',
+    await fetch(`http://localhost:5000/request/requestlor`,
     {
       method:'POST',
       headers:{'Authorization':token}
@@ -23,7 +23,7 @@ const Dashboard = () => {
   }
   const handleCertificateSubmit =async ()=>{
     let token = localStorage.getItem('token')
-    await fetch('http://localhost:5000/request/requestCertificate',
+    await fetch(`http://localhost:5000/request/requestCertificate`,
     {
       method:'POST',
       headers:{'Authorization':token}
