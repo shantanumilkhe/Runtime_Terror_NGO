@@ -49,11 +49,6 @@ function homepage() {
                   Institute
                 </a>
               </li>
-              <li>
-                <a className="nav-link page-scroll" href="/adminauth">
-                  Admin
-                </a>
-              </li>
               <li className="dropdown">
                 <div className="dropdown-menu" aria-labelledby="dropdown01">
                   <a className="dropdown-item page-scroll" href="article.html">

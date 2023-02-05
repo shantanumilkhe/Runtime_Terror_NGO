@@ -156,9 +156,9 @@ const Admin = () => {
                 </svg>
                 <span
                   class="flex-1 ml-3 whitespace-nowrap"
-                  onClick={() => setNumber(4)}
+                  href="./pages/admin/Events_input.js"
                 >
-                  <a href="/admin/create-event">Add Events</a>
+                  Add Events
                 </span>
               </div>
             </li>

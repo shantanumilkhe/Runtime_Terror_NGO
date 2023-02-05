@@ -158,7 +158,8 @@ const Admin = () => {
                   class="flex-1 ml-3 whitespace-nowrap"
                   onClick={() => setNumber(4)}
                 >
-                  <a href="/admin/create-event">Add Events</a>
+                  <a href="./pages/admin/Events_input.js"></a>
+                  Add Events
                 </span>
               </div>
             </li>
