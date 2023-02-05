@@ -6,9 +6,11 @@ const [eventList,setEventList]=useState(null)
 // console.log(token);
 
 const handleClick=async(id)=>{
+  console.log(id)
   const token = localStorage.getItem("token");
-  await fetch(`http://localhost:5000/vol/participate/`+id,{method:'POST',headers:{'Authorization':token}}).then((res)=>{
-    console.log('participated')
+  await fetch('http://localhost:5000/vol/participate/'+id,{method:'POST',headers:{'Authorization':token}}).then((res)=>{
+    if(res.status===200) console.log('participated')
+    
   }).catch((err)=>{
 console.log(err)
   })
