@@ -1,16 +1,44 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./institute.css";
 import StudentTrack from "./StudentTrack";
 import DragnDrop from "./DragnDrop";
+import axios from 'axios'
 
 const Dashboard = () => {
   const [number, setNumber] = useState(1);
+  const [certificate,setCertificate] = useState(null);
+  const [lor,setLor] = useState(null);
   //   let navigate = useNavigate();
   //   const routeChange = () => {
   //     let path = `volunteer/dashboard/dragndrop`;
   //     navigate(path);
   //   };
+  const handleLORSubmit =async ()=>{
+    let token = localStorage.getItem('token')
+    await fetch('http://localhost:5000/request/requestlor',
+    {
+      method:'POST',
+      headers:{'Authorization':token}
+    }).then(res=>console.log(res)).catch(err=>console.log(err));
+  }
+  const handleCertificateSubmit =async ()=>{
+    let token = localStorage.getItem('token')
+    await fetch('http://localhost:5000/request/requestCertificate',
+    {
+      method:'POST',
+      headers:{'Authorization':token}
+    }).then(res=>console.log(res)).catch(err=>console.log(err));
+  }
 
+  useEffect(() => {
+    let token = localStorage.getItem('token')
+    async function getDetails(){
+      await axios.get('http://localhost:5000/vol/getcertificates',{headers:{Authorization:token}}).then(res=>res.send).catch(err=>console.log(err));
+      await axios.get('http://localhost:5000/vol/getLOR',{headers:{Authorization:token}}).then(res=>res.send).catch(err=>console.log(err));
+    }
+    getDetails();
+  }, [])
+  
   return (
     <div className="StudentTrack_container">
       <div class="Side-bar">
@@ -146,11 +174,20 @@ const Dashboard = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/800px-Tesla_T_symbol.svg.png"
                   alt=""
                 />
+                
                 <button
                   type="button"
                   class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                  onClick={handleLORSubmit}
                 >
-                  Request
+                  Request LOR
+                </button>
+                <button
+                  type="button"
+                  class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                  onClick={handleCertificateSubmit}
+                >
+                  Request Certificate
                 </button>
               </div>
             </div>

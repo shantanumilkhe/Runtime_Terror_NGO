@@ -5,7 +5,7 @@ const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const Request = require('../model/request');
 
-router.get('/generatecertificate/:id', async (req, res) => {
+router.post('/generatecertificate/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const Volunt = await Volunteer.findOne({ _id: id });

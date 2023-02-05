@@ -85,11 +85,14 @@ router.get('/assignstudent/:id', async (req, res) => {
         // const Insti = await Institute.findOne({ _id: course.InstituteId });
         console.log(course);
         const Students = await Student.find({assignedInstitute: null, course: course.courseProvided});
+        console.log(Students);
         const StudentsLength = Students.length;
         const assigned = course.assignedStudents.length;
         const availableseats = course.seats-assigned;
         if(availableseats>0){
-            for(let i=0;i<availableseats&&StudentsLength;i++){
+            let target = Math.min(availableseats,StudentsLength);
+            console.log(target+" "+availableseats+" "+StudentsLength)
+            for(let i=0;i<target;i++){
                 Students[i].assignedInstitute = req.params.id;
                 course.assignedStudents.push(Students[i]._id);
                 Students[i].save();
