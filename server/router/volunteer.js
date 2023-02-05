@@ -94,8 +94,11 @@ router.post('/participate/:id',passport.authenticate('jwt', { session: false }),
     try{
             const id = req.params.id;
             const ev = await event.findOne({_id:id});
+            console.log(ev)
             const vid = req.user.id;
-            const volunt = await Volunteer({ _id: vid });
+          
+            const volunt = await Volunteer.findOne({ _id: vid });
+            console.log(volunt)
             const required = ev.volunteersRequired;
             const assigned = ev.volunteersAssigned.length;
             const hours = ev.timeRequired

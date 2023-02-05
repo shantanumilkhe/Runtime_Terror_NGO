@@ -45,9 +45,10 @@ router.post('/generateLOR/:id', async (req, res) => {
         const newReq = await Request.findOne();
         if (newReq.pendinglor.includes(id)) {
             newReq.pendinglor.pull(id);
-            newReq.save();
+           
         }
         newReq.approvedlor.push(id);
+        newReq.save();
 
         const doc = new PDFDocument({
             layout: 'portrait',
