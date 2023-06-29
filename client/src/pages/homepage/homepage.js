@@ -69,7 +69,7 @@ function homepage() {
         <div className="container px-4 sm:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
           <div className="mb-16 lg:mt-32 xl:mt-1 xl:mr-12">
             <h1 className="h1-large mb-5">
-              Education for everyone available everywhere
+                Education: A Global Right Without Limits!
             </h1>
             <p className="p-large mb-8 text-white">
               Non-profit organization that provides free education to everyone.
